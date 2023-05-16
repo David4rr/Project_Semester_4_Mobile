@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Smart Lab</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="daftar_barang_fragment">Daftar Barang Fragment</string>
+    <string name="Home_Fragment">Home Fragment</string>
+    <string name="peminjaman_fragment">Peminjaman_Fragment</string>
+    <string name="ha1_selamat_datang">Ha1, Selamat Datang</string>
+    <string name="david_arrozaqi">David Arrozaqi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
