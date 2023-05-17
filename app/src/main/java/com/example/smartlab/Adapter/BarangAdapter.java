@@ -57,11 +57,11 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.BarangView
                 Intent intent = new Intent(context, DetailBarangActivity.class);
                 intent.putExtra("IdBarang", dataBarangList.get(holder.getAdapterPosition()).getIdBarang2());
                 intent.putExtra("Kategori", dataBarangList.get(holder.getAdapterPosition()).getKategori());
-                intent.putExtra("namaBarang", dataBarangList.get(holder.getAdapterPosition()).getNamaBarang());
-                intent.putExtra("detailBarang", dataBarangList.get(holder.getAdapterPosition()).getDetailBarang());
-                intent.putExtra("deskripsiBarang", dataBarangList.get(holder.getAdapterPosition()).getDeskripsiBarang2());
+                intent.putExtra("NamaBarang", dataBarangList.get(holder.getAdapterPosition()).getNamaBarang());
+                intent.putExtra("DetailBarang", dataBarangList.get(holder.getAdapterPosition()).getDetailBarang());
+                intent.putExtra("DeskripsiBarang", dataBarangList.get(holder.getAdapterPosition()).getDeskripsiBarang2());
                 intent.putExtra("Stock", dataBarangList.get(holder.getAdapterPosition()).getTotalBarang());
-                intent.putExtra("imageBarang", dataBarangList.get(holder.getAdapterPosition()).getDataImg());
+                intent.putExtra("ImageBarang", dataBarangList.get(holder.getAdapterPosition()).getDataImg());
 
                 context.startActivity(intent);
             }

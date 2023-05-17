@@ -34,7 +34,7 @@ public class DetailBarangActivity extends AppCompatActivity {
             txt_detailBarang.setText(bundle.getString("DetailBarang"));
             txt_deskripsiBarang.setText(bundle.getString("DeskripsiBarang"));
             txt_stock.setText(bundle.getString("Stock"));
-            img_detailBarang.setImageResource(bundle.getInt("Imagebarang"));
+            img_detailBarang.setImageResource(bundle.getInt("ImageBarang"));
         }
     }
 }

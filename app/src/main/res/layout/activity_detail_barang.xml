@@ -145,7 +145,7 @@
             android:id="@+id/txt_stock"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/txt_stock"
+            app:layout_constraintTop_toBottomOf="@id/txt_ttlstock"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

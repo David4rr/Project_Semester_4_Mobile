@@ -61,22 +61,22 @@ public class DaftarBarang2Activity extends AppCompatActivity {
         recyclerView.setLayoutManager(gridLayoutManager);
         dataBarang2List = new ArrayList<>();
 
-        dataBarang2 = new DataBarang2(R.drawable.avatar, "Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.avatar, "Lil Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Lil Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.avatar, "Uno Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Uno Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.avatar, "Mwehe Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Mwehe Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.avatar, "Lol Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Lol Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.avatar, "Surend Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Surend Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
         dataBarang2List.add(dataBarang2);
 
         adapter = new Barang2Adapter(DaftarBarang2Activity.this, dataBarang2List);
