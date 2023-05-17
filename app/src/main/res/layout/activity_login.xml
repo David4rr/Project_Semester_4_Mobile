@@ -90,7 +90,7 @@
             android:layout_marginHorizontal="15dp"
             android:fontFamily="@font/poppins_regular"
             android:textSize="14sp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword|textVisiblePassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

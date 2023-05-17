@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.smartlab.Activity.EditProfileActivity;
 import com.example.smartlab.Adapter.HistoryAdapter;
 import com.example.smartlab.History;
 import com.example.smartlab.R;
@@ -83,7 +84,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Membuat Intent untuk memulai EditProfileActivity
-                Intent intent = new Intent(requireContext(), EditProfileFragment.class);
+                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
                 startActivity(intent);
             }
         });

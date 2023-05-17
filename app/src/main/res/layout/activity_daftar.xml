@@ -129,12 +129,12 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_password"
         android:background="@drawable/edittext_shape"
         android:hint="Masukan Password anda disini"
-        app:endIconMode="password_toggle"
         app:counterEnabled="true"
         android:paddingHorizontal="15dp"
         android:paddingBottom="5dp"
         app:helperText="Masukan Password"
-        app:counterMaxLength="20">
+        app:counterMaxLength="20"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_passwordDaftar"
@@ -143,7 +143,7 @@
             android:layout_marginHorizontal="15dp"
             android:fontFamily="@font/poppins_regular"
             android:textSize="14sp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword|textVisiblePassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
