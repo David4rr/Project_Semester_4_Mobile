@@ -9,7 +9,7 @@
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/img_back"
+        android:id="@+id/img_backDetailBarang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/panah_kembali"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Detail Barang"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/img_back"
+        app:layout_constraintLeft_toRightOf="@+id/img_backDetailBarang"
         android:layout_marginStart="20dp"
         android:layout_marginTop="14dp"
         android:fontFamily="@font/poppins_bold"

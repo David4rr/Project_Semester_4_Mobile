@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.HomeFragment"
+    tools:context=".Fragment.DaftarBarangFragment"
     android:background="@color/primaryColor">
 
     <LinearLayout
@@ -54,7 +54,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewHistory2"
             android:layout_width="match_parent"
-            android:layout_height="565dp"
+            android:layout_height="575dp"
             android:layout_marginTop="5dp"/>
 
     </LinearLayout>

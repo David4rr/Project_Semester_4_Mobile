@@ -1,5 +1,6 @@
 package com.example.smartlab.Fragment;
 
+import android.content.Intent;
 import android.graphics.BlendMode;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.smartlab.Adapter.HistoryAdapter;
 import com.example.smartlab.History;
@@ -24,6 +26,9 @@ import com.github.mikephil.charting.data.BarEntry;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
+
+    private Button btn_edtProfile;
+
 //    Button button;
 
 //    View view;
@@ -71,6 +76,17 @@ public class HomeFragment extends Fragment {
 //                //agar saat menekan tombol kembali tidak bolak-balik
 //            }
 //        });
+
+        btn_edtProfile = view.findViewById(R.id.btn_edtprofile);
+
+        btn_edtProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Membuat Intent untuk memulai EditProfileActivity
+                Intent intent = new Intent(requireContext(), EditProfileFragment.class);
+                startActivity(intent);
+            }
+        });
 
         addData();
 

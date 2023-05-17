@@ -3,6 +3,7 @@ package com.example.smartlab.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,7 +12,7 @@ import com.example.smartlab.R;
 public class DetailBarangActivity extends AppCompatActivity {
 
     TextView txt_idBarang, txt_detailKategori, txt_namaBarang, txt_detailBarang, txt_deskripsiBarang, txt_stock;
-    ImageView img_detailBarang;
+    ImageView img_detailBarang, btn_backDetailBarang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,14 @@ public class DetailBarangActivity extends AppCompatActivity {
         txt_deskripsiBarang = findViewById(R.id.txt_deskripsiBarang);
         txt_stock = findViewById(R.id.txt_stock);
         img_detailBarang = findViewById(R.id.img_detailBarang);
+        btn_backDetailBarang = findViewById(R.id.img_backDetailBarang);
+
+        btn_backDetailBarang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            onBackPressed();
+            }
+        });
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
