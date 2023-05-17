@@ -77,4 +77,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LoginActivity.this, MasukDaftarActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

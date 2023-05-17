@@ -11,11 +11,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:id="@+id/avatar"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:src="@drawable/avatar"/>
+        android:background="@drawable/background_profile"/>
 
     <TextView
         android:layout_marginTop="20dp"
@@ -26,16 +26,20 @@
         app:layout_constraintLeft_toRightOf="@+id/avatar"
         android:text="@string/ha1_selamat_datang"
         android:textColor="#939393"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/poppins_regular"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/txt_nama"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
+        android:maxLines="1"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
         app:layout_constraintTop_toBottomOf="@+id/txt_hai"
         app:layout_constraintLeft_toRightOf="@+id/avatar"
         android:text="@string/david_arrozaqi"
+        android:layout_marginStart="10dp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins_bold"
         android:textSize="16sp" />
@@ -75,6 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/avatar"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="Grafik Peminjaman"
+        android:layout_marginTop="10dp"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins_bold"
         android:textSize="16sp" />
@@ -139,7 +144,7 @@
                 android:text="100"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="20sp"
-                android:background="@drawable/background_barang"
+                android:background="@drawable/background_barang2"
                 android:backgroundTint="@color/white"/>
 
             <TextView
@@ -168,7 +173,7 @@
                 android:text="100"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="20sp"
-                android:background="@drawable/background_barang"
+                android:background="@drawable/background_barang2"
                 android:backgroundTint="@color/white"/>
 
             <TextView
@@ -198,7 +203,7 @@
                 android:text="100"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="20sp"
-                android:background="@drawable/background_barang"
+                android:background="@drawable/background_barang2"
                 android:backgroundTint="@color/white"/>
 
             <TextView
