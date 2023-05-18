@@ -30,13 +30,6 @@ public class HomeFragment extends Fragment {
 
     private Button btn_edtProfile;
 
-//    Button button;
-
-//    View view;
-//    Fragment fragmentTwo;
-//    FragmentManager fragmentManager = getFragmentManager();
-//    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
     private RecyclerView recyclerView;
     private HistoryAdapter historyAdapter;
     private ArrayList<History> historyArrayList;
@@ -48,35 +41,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//         Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_home, container, false);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-//        button = view.findViewById(R.id.btn_edtprofile);
-
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                EditProfileFragment editProfileFragment = new EditProfileFragment();
-//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.constraint, EditProfileFragment.class, null).commit();
-//            }
-//        });
-
-//        Button buttonSayHi = (Button) view.findViewById(R.id.btn_edtprofile);
-//        buttonSayHi.setOnClickListener((View.OnClickListener) this);
-
-//        tombol = (Button)view.findViewById(R.id.btn_lgn);
-//
-//        tombol.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //kode untuk pindah ke actifity lain
-//                pindah = new Intent(requireContext(), EditProfileFragment.class);
-//                startActivity(pindah);
-//                //saat pindah, activity yg sekarang langsung ditutup
-//                //agar saat menekan tombol kembali tidak bolak-balik
-//            }
-//        });
 
         btn_edtProfile = view.findViewById(R.id.btn_edtprofile);
 
@@ -151,23 +116,5 @@ public class HomeFragment extends Fragment {
         historyArrayList.add(new History("Peminjaman 5","26-02-2023", "12", "12"));
     }
     // Code diatas untuk data Recyclerview
-//    @Override
-//    public void onClick(View v) {
-//        switch(v.getId()){
-//            case R.id.btn_edtprofile:
-//                fragmentTwo = new Fragment();
-//
-//                fragmentTransaction.replace(R.id.F)
-//                /** Do things you need to..
-//                 fragmentTwo = new FragmentTwo();
-//
-//                 fragmentTransaction.replace(R.id.frameLayoutFragmentContainer, fragmentTwo);
-//                 fragmentTransaction.addToBackStack(null);
-//
-//                 fragmentTransaction.commit();
-//                 */
-//                break;
-//        }
-//    }
 
 }

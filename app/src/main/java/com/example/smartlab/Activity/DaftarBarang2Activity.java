@@ -5,6 +5,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -96,5 +97,12 @@ public class DaftarBarang2Activity extends AppCompatActivity {
         } else {
             adapter.setSearchList2(dataSearchList);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DaftarBarang2Activity.this, PinjamBarangActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

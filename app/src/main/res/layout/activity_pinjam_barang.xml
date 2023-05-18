@@ -9,7 +9,7 @@
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/img_back"
+        android:id="@+id/img_backpinjamBarang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/panah_kembali"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Pinjam Barang"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/img_back"
+        app:layout_constraintLeft_toRightOf="@+id/img_backpinjamBarang"
         android:layout_marginStart="20dp"
         android:layout_marginTop="14dp"
         android:fontFamily="@font/poppins_bold"
@@ -83,6 +83,7 @@
             android:textSize="13sp" />
 
         <Button
+            android:id="@+id/btn_daftarBarang2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -130,7 +131,7 @@
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_bold"
             android:textSize="13sp"
-            android:textColorHint="@color/white"/>
+            android:textColorHint="@color/white" />
 
         <ImageButton
             android:id="@+id/btn_calender"
