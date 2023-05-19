@@ -54,22 +54,22 @@ public class DaftarBarangFragment extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager);
         dataBarang = new ArrayList<>();
 
-        listBarang = new DataBarang(R.drawable.background_profile, "Arduino Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "hii");
+        listBarang = new DataBarang(R.drawable.background_profile, "Arduino Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang.add(listBarang);
 
-        listBarang = new DataBarang(R.drawable.background_profile, "Kucing", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "hii");
+        listBarang = new DataBarang(R.drawable.background_profile, "Uno Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang.add(listBarang);
 
-        listBarang = new DataBarang(R.drawable.background_profile, "Mekanik", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "hii");
+        listBarang = new DataBarang(R.drawable.background_profile, "Dino Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang.add(listBarang);
 
-        listBarang = new DataBarang(R.drawable.background_profile, "Ular", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "hii");
+        listBarang = new DataBarang(R.drawable.background_profile, "Ugio Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang.add(listBarang);
 
-        listBarang = new DataBarang(R.drawable.background_profile, "David", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "hii");
+        listBarang = new DataBarang(R.drawable.background_profile, "Mureco Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang.add(listBarang);
 
-        listBarang = new DataBarang(R.drawable.background_profile, "Lil Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "hii");
+        listBarang = new DataBarang(R.drawable.background_profile, "Android Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang.add(listBarang);
 
         adapter = new BarangAdapter(requireContext(), dataBarang);

@@ -62,22 +62,22 @@ public class DaftarBarang2Activity extends AppCompatActivity {
         recyclerView.setLayoutManager(gridLayoutManager);
         dataBarang2List = new ArrayList<>();
 
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Lil Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Lil Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Uno Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Uno Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Mwehe Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino2 Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Lol Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Camero Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang2List.add(dataBarang2);
 
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Surend Uno", "24 Pin", "Alat Praktikum", "12", "A123", "hiii");
+        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Sure Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang2List.add(dataBarang2);
 
         adapter = new Barang2Adapter(DaftarBarang2Activity.this, dataBarang2List);
@@ -93,7 +93,7 @@ public class DaftarBarang2Activity extends AppCompatActivity {
             }
         }
         if (dataSearchList.isEmpty()){
-            Toast.makeText(this, "Dat Tidak Ditemukan", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Data Tidak Ditemukan", Toast.LENGTH_SHORT).show();
         } else {
             adapter.setSearchList2(dataSearchList);
         }

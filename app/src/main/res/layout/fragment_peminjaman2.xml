@@ -87,7 +87,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerviewHistory2"
+            android:id="@+id/recyclerviewHistory4"
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_marginTop="5dp"/>
