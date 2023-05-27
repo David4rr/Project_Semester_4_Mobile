@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.smartlab.Adapter.Barang2Adapter;
 import com.example.smartlab.DataBarang2;
+import com.example.smartlab.Interface.UpdatePinjaman;
 import com.example.smartlab.R;
 
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ public class DaftarBarang2Activity extends AppCompatActivity {
 
     // Variabel ini adalah objek SearchView yang digunakan untuk menyediakan fungsi pencarian dalam RecyclerView.
     SearchView searchView;
+
+    UpdatePinjaman updatePinjaman;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +61,12 @@ public class DaftarBarang2Activity extends AppCompatActivity {
             }
         });
 
+        // Kode di dibawah digunakan untuk mengatur tampilan grid pada RecyclerView dalam aktivitas DaftarBarang2Activity
         GridLayoutManager gridLayoutManager = new GridLayoutManager(DaftarBarang2Activity.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
         dataBarang2List = new ArrayList<>();
 
+        // Membuat objek DataBarang2 dengan nilai-nilai tertentu untuk setiap atributnya. Kemudian, objek tersebut ditambahkan ke dalam dataBarang2List.
         dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang2List.add(dataBarang2);
 
@@ -80,11 +85,13 @@ public class DaftarBarang2Activity extends AppCompatActivity {
         dataBarang2 = new DataBarang2(R.drawable.background_profile, "Sure Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
         dataBarang2List.add(dataBarang2);
 
-        adapter = new Barang2Adapter(DaftarBarang2Activity.this, dataBarang2List);
+        // untuk menghubungkan data yang ada dalam dataBarang2List dengan tampilan item-item dalam RecyclerView
+        adapter = new Barang2Adapter(DaftarBarang2Activity.this, dataBarang2List, updatePinjaman);
         recyclerView.setAdapter(adapter);
 
     }
 
+    // Untuk melakukan pencarian berdasarkan nama barang dalam dataBarang2List, dan hasil pencarian akan ditampilkan dalam RecyclerView melalui pembaruan data dalam adapter.
     private void searchList2(String text){
         List<DataBarang2> dataSearchList = new ArrayList<>();
         for (DataBarang2 data : dataBarang2List){
@@ -99,6 +106,7 @@ public class DaftarBarang2Activity extends AppCompatActivity {
         }
     }
 
+    // Untuk mengarahkan pengguna ke aktivitas PinjamBarangActivity ketika tombol "Back" ditekan pada aktivitas DaftarBarang2Activity
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(DaftarBarang2Activity.this, PinjamBarangActivity.class);

@@ -37,6 +37,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         btn_backAkun = findViewById(R.id.img_backAkun);
 
+        //  menavigasikan pengguna kembali ke aktivitas sebelumnya.
         btn_backAkun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

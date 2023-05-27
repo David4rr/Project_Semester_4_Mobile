@@ -7,17 +7,6 @@
     tools:context=".Fragment.MenungguDisetujuiFragment"
     android:background="@color/primaryColor">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Peminjaman"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
     <LinearLayout
         android:id="@+id/lyt_table"
         android:layout_width="match_parent"
@@ -64,7 +53,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerviewHistory2"
+            android:id="@+id/recyclerviewBarang"
             android:layout_width="match_parent"
             android:layout_height="550dp"
             android:layout_marginTop="5dp"/>

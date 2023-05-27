@@ -19,6 +19,7 @@ public class EditAkunActivity extends AppCompatActivity {
 
         btn_editAkun = findViewById(R.id.img_backEditAkun);
 
+        // menavigasikan pengguna kembali ke aktivitas sebelumnya.
         btn_editAkun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

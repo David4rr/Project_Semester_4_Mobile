@@ -4,9 +4,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.smartlab.Activity.LoginActivity;
 import com.example.smartlab.Fragment.DaftarBarangFragment;
 import com.example.smartlab.Fragment.HomeFragment;
 import com.example.smartlab.Fragment.PeminjamanFragment;
@@ -56,11 +58,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
-        alertDialog.setTitle("Exit App");
+        alertDialog.setTitle("Keluar Aplikasi");
         alertDialog.setMessage("Apakah anda ingin keluar Aplikasi?");
         alertDialog.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Preferences.clearLoggedInUser(getBaseContext());
                 finishAffinity();
             }
         });

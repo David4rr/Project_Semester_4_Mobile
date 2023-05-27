@@ -100,34 +100,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
-        android:text="NIM"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/white"
-        android:id="@+id/txt_nim"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nim"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:hint="Masukan NIM anda disini"
-        android:textSize="14sp"
-        android:fontFamily="@font/poppins_regular"
-        android:background="@drawable/edittext_shape"
-        android:height="40dp"
-        android:paddingLeft="20dp"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:id="@+id/edt_nim"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nim"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
         android:text="Email"
         android:fontFamily="@font/poppins_bold"
         android:textColor="@color/white"

@@ -70,8 +70,7 @@ public class PeminjamanFragment extends Fragment {
         SectionPagerAdapter adapter = new SectionPagerAdapter(getChildFragmentManager());
 
         adapter.addFragment(new PeminjamanFragment2(), "Peminjaman");
-        adapter.addFragment(new MenungguDisetujuiFragment(), "Menunggu Disetujui");
-        adapter.addFragment(new PengembalianFragment(), "Pengembalian");
+        adapter.addFragment(new MenungguDisetujuiFragment(), "Status");
 
         viewPager.setAdapter(adapter);
     }

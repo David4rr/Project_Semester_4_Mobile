@@ -26,7 +26,7 @@
         android:layout_marginTop="40dp"
         android:textSize="14sp"
         android:fontFamily="@font/poppins_regular"
-        android:text="Silakan login menggunakan NIM dan password yang telah terdaftar." />
+        android:text="Silakan login menggunakan Email dan password yang telah terdaftar." />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
-        android:text="NIM"
+        android:text="Email"
         android:fontFamily="@font/poppins_bold"
         android:textColor="#25388D"
         android:id="@+id/txt_nim"/>
@@ -52,16 +52,15 @@
         android:background="@drawable/edittext_shape"
         android:height="40dp"
         android:paddingLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/edt_nim"/>
+        android:id="@+id/edt_email"/>
 
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nim"
+        app:layout_constraintTop_toBottomOf="@+id/edt_email"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:textSize="20sp"
         android:text="Password"
         android:fontFamily="@font/poppins_bold"
@@ -77,11 +76,8 @@
         android:background="@drawable/edittext_shape"
         android:hint="Masukan Password anda disini"
         app:passwordToggleEnabled="true"
-        app:counterEnabled="true"
         android:paddingHorizontal="15dp"
-        android:paddingBottom="5dp"
-        app:helperText="Masukan Password"
-        app:counterMaxLength="20">
+        android:paddingBottom="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_passwordLogin"
@@ -93,7 +89,6 @@
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <CheckBox
         android:layout_width="wrap_content"

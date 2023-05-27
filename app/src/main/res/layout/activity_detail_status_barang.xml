@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Activity.PinjamBarangActivity"
+    tools:context=".Activity.DetailStatusBarangActivity"
     android:background="@color/primaryColor"
     android:padding="20dp">
 
@@ -21,7 +21,7 @@
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pinjam Barang"
+        android:text="Detail Peminjaman"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/img_backpinjamBarang"
         android:layout_marginStart="20dp"
@@ -48,18 +48,19 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:text="Pilih Barang"
             android:fontFamily="@font/poppins_bold"
             android:textSize="16sp"
             android:textColor="@color/white"/>
 
-        <ImageView
-            android:id="@+id/img_sampah"
+        <TextView
+            android:id="@+id/txt_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:src="@drawable/sampah"/>
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="16sp"
+            android:textColor="@color/secondaryColor"/>
 
         <TextView
             android:id="@+id/ttl_namaBarang"
@@ -72,37 +73,37 @@
             android:textSize="13sp"
             android:textColor="@color/white"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcylPinjam"
-            android:layout_width="match_parent"
-            android:layout_height="275dp"
-            app:layout_constraintTop_toBottomOf="@id/ttl_namaBarang"
-            app:layout_constraintBottom_toTopOf="@+id/btn_daftarBarang2"/>
-
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/img_sampah"
+            app:layout_constraintTop_toBottomOf="@+id/txt_status"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="7dp"
             android:textColor="@color/secondaryColor"
             android:text="Jumlah"
             android:textSize="13sp" />
 
-        <Button
-            android:id="@+id/btn_daftarBarang2"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/txt_ttltotalitems"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:background="@drawable/button_shape"
-            android:text="Tambah Barang"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="13sp"
-            android:textColor="@color/primaryColor"
-            android:textAllCaps="false"
-            android:padding="10dp"/>
+            app:layout_constraintBottom_toTopOf="@+id/txt_totalItems"
+            android:text="Total Items"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="16sp"
+            android:textColor="@color/secondaryColor"/>
+
+        <TextView
+            android:id="@+id/txt_totalItems"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="16sp"
+            android:textColor="@color/secondaryColor"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -110,9 +111,10 @@
         android:id="@+id/ttl_tanggalPengembalian"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/constlyt_barang"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/constlyt_tanggal"
+        android:layout_marginBottom="10dp"
         android:textSize="13sp"
         android:text="Tanggal pengembalian"
         android:textColor="@color/white"
@@ -120,52 +122,29 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constlyt_tanggal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/ttl_tanggalPengembalian"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/constlyt_barang"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/button_editprofile"
         android:paddingHorizontal="10dp">
 
-        <EditText
+        <TextView
             android:id="@+id/edt_outTanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:hint="Atur Tanggal"
+            app:layout_constraintRight_toRightOf="parent"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_bold"
             android:textSize="13sp"
             android:textColorHint="@color/white" />
 
-        <ImageButton
-            android:id="@+id/btn_calender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/edt_outTanggal"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/calender"
-            android:background="@drawable/button_editprofile"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/constlyt_tanggal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Pinjam"
-        android:textAllCaps="false"
-        android:fontFamily="@font/poppins_semibold"
-        android:textSize="13sp"
-        android:textColor="@color/primaryColor"
-        android:background="@drawable/button_shape" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,8 @@ import android.view.Window;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.smartlab.Activity.MasukDaftarActivity;
+import com.example.smartlab.MainActivity;
+import com.example.smartlab.Preferences;
 import com.example.smartlab.R;
 
 public class SplashScreen extends AppCompatActivity {
@@ -16,6 +18,8 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        // untuk menampilkan splash screen selama 5 detik, kemudian mengarahkan pengguna ke aktivitas MasukDaftarActivity.
         //menghilangkan ActionBar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash_screen);

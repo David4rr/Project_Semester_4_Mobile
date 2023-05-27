@@ -3,14 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/background_barang.xml" value="0.2445" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/background_barang2.xml" value="0.2245" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/background_profile.xml" value="0.2245" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/background_search.xml" value="0.2445" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/background_tablayout.xml" value="0.2445" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/button_editprofile.xml" value="0.2445" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/button_notif.xml" value="0.2445" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/button_shape.xml" value="0.2445" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/button_shape_daftar.xml" value="0.2445" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/drawable/plus.xml" value="0.2445" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_daftar.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_daftar_barang2.xml" value="0.1265625" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_daftar_barang2.xml" value="0.264" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_detail_barang.xml" value="0.2" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_detail_peminjaman.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_detail_status_barang.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_edit_akun.xml" value="0.264945652173913" />
-        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_edit_profile.xml" value="0.1265625" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_edit_profile.xml" value="0.4" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_main.xml" value="0.1265625" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/activity_masuk_daftar.xml" value="0.1265625" />
@@ -18,12 +27,16 @@
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_daftar_barang.xml" value="0.1265625" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1265625" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_home.xml" value="0.4" />
-        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_peminjaman.xml" value="0.1265625" />
-        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_peminjaman2.xml" value="0.1265625" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_menunggu_disetujui.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_peminjaman.xml" value="0.264" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_peminjaman2.xml" value="0.4" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/fragment_pengembalian.xml" value="0.1265625" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/list_barang.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/list_barang2.xml" value="0.264945652173913" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/list_barang3.xml" value="0.264945652173913" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/list_history.xml" value="0.2" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/list_history2.xml" value="0.264" />
+        <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/Project_Semester_4_Mobile/app/src/main/res/layout/list_pinjam.xml" value="0.264945652173913" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/SmartLab/app/src/main/res/drawable/background_barang.xml" value="0.2245" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/SmartLab/app/src/main/res/drawable/background_search.xml" value="0.2445" />
         <entry key="..\:/Users/david/Documents/my private document/tugas kuliah/Semester 4/Project Semester 4/SmartLab/app/src/main/res/drawable/background_tablayout.xml" value="0.2245" />

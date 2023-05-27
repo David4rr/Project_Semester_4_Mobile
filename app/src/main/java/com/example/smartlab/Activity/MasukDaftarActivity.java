@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.smartlab.MainActivity;
+import com.example.smartlab.Preferences;
 import com.example.smartlab.R;
 
 public class MasukDaftarActivity extends AppCompatActivity {
@@ -35,10 +37,23 @@ public class MasukDaftarActivity extends AppCompatActivity {
         tombol2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //kode untuk pindah ke actifity lain
                 pindah2 = new Intent(MasukDaftarActivity.this, DaftarActivity.class);
                 startActivity(pindah2);
+                //saat pindah, activity yg sekarang langsung ditutup
+                //agar saat menekan tombol kembali tidak bolak-balik
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (Preferences.getLoggedInStatus(getBaseContext())){
+            startActivity(new Intent(getBaseContext(), MainActivity.class));
+            finish();
+        }
+
     }
 }
