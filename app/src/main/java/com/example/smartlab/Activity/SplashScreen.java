@@ -31,6 +31,6 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MasukDaftarActivity.class));
                 finish();
             }
-        }, 5000L); //3000 L = 3 detik
+        }, 1000L); //3000 L = 3 detik
     }
 }

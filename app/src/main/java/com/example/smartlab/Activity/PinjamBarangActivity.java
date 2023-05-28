@@ -28,7 +28,6 @@ public class PinjamBarangActivity extends AppCompatActivity {
     PinjamAdapter pinjamAdapter;
     Activity context;
     UpdatePinjaman updatePinjaman;
-
     private EditText edt_tangal;
     private ImageButton btn_calender;
 
@@ -56,11 +55,10 @@ public class PinjamBarangActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //kode untuk pindah ke actifity lain
-                pindah = new Intent(PinjamBarangActivity.this, DaftarBarang2Activity.class);
+                Intent pindah = new Intent(PinjamBarangActivity.this, DaftarBarang2Activity.class);
                 startActivity(pindah);
                 //saat pindah, activity yg sekarang langsung ditutup
                 //agar saat menekan tombol kembali tidak bolak-balik
-                finish();
             }
         });
 

@@ -6,9 +6,11 @@ import android.preference.PreferenceManager;
 
 public class Preferences {
 
-    static final String KEY_EMAIL_TEREGISTER = "email", KEY_PASS_TEREGISTER = "pass";
+//    static final String KEY_EMAIL_TEREGISTER = "email", KEY_PASS_TEREGISTER = "pass";
     static final String KEY_EMAIL_SEDANG_LOGIN = "email_logged_in";
     static final String KEY_STATUS_SEDANG_LOGIN = "status_logged_in";
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     private static SharedPreferences getSharedPreferences(Context context){
         return PreferenceManager.getDefaultSharedPreferences(context);
@@ -33,11 +35,19 @@ public class Preferences {
     public static boolean getLoggedInStatus(Context context){
         return getSharedPreferences(context).getBoolean(KEY_STATUS_SEDANG_LOGIN, false);
     }
+//    public void saveString(String key, String value){
+//        editor.putString(key, value);
+//        editor.apply();
+//    }
+//    public String getString(String key, String defaultValue){
+//        return sharedPreferences.getString(key, defaultValue);
+//    }
 
     public static void clearLoggedInUser(Context context){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();
         editor.remove(KEY_EMAIL_SEDANG_LOGIN);
         editor.remove(KEY_STATUS_SEDANG_LOGIN);
+        editor.clear();
         editor.apply();
     }
 

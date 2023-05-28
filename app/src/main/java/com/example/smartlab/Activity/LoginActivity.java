@@ -7,26 +7,38 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.smartlab.Adapter.BarangAdapter;
+import com.example.smartlab.ApiClient;
+import com.example.smartlab.DataBarang;
+import com.example.smartlab.Models.LoginResponse;
+import com.example.smartlab.Models.UserRequest;
 import com.example.smartlab.Preferences;
 import com.example.smartlab.MainActivity;
 import com.example.smartlab.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText edt_email;
+    private EditText edt_email, edt_password;
 
     TextInputLayout textInputLayout;
     TextInputEditText textInputEditText;
 
     Button tombol;
-//    Intent pindah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,62 +49,32 @@ public class LoginActivity extends AppCompatActivity {
         textInputEditText = findViewById(R.id.edt_passwordLogin);
         textInputLayout = findViewById(R.id.inputlayoutlogin);
 
-        tombol = (Button)findViewById(R.id.btn_lgn);
+        tombol = findViewById(R.id.btn_lgn);
 
         textInputEditText.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL){
-                razia();
+            if (TextUtils.isEmpty(edt_email.getText().toString()) || TextUtils.isEmpty(textInputEditText.getText().toString())){
+                edt_email.setError("Email Required");
+                textInputEditText.setError("Password Required");
+                edt_email.requestFocus();
+                textInputEditText.requestFocus();
                 return true;
+            }else{
+                return false;
             }
-            return false;
         });
 
-        findViewById(R.id.btn_lgn).setOnClickListener((v) -> {
-            razia();
+        tombol.setOnClickListener((v) -> {
+            if (TextUtils.isEmpty(edt_email.getText().toString()) || TextUtils.isEmpty(textInputEditText.getText().toString())){
+                edt_email.setError("Email Required");
+                textInputEditText.setError("Password Required");
+                edt_email.requestFocus();
+                textInputEditText.requestFocus();
+                return;
+            }else{
+                getData();
+            }
         });
 
-//        textInputEditText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            // Digunakan untuk melakukan validasi pada input password. Ketika teks pada textInputEditText berubah, kode tersebut akan memeriksa panjang password dan pola karakter yang memenuhi persyaratan tertentu.
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                String passwordInput = s.toString();
-//                if (passwordInput.length() >= 8){
-//                    Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
-//                    Matcher matcher = pattern.matcher(passwordInput);
-//                    boolean passwordMatch = matcher.find();
-//                    if (passwordMatch){
-//                        textInputLayout.setHelperText("Password Kuat");
-//                        textInputLayout.setError("");
-//                    }else {
-//                        textInputLayout.setError("Membutuhkan Huruf Besar dan kecil, Angka dan Symbol");
-//                    }
-//                } else {
-//                    textInputLayout.setHelperText("Password harus lebih 8 Karakter");
-//                }
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//
-//            }
-//        });
-
-//        tombol.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //kode untuk pindah ke actifity lain
-//                pindah = new Intent(LoginActivity.this, MainActivity.class);
-//                startActivity(pindah);
-//                //saat pindah, activity yg sekarang langsung ditutup
-//                //agar saat menekan tombol kembali tidak bolak-balik
-//                finish();
-//            }
-//        });
     }
 
     @Override
@@ -133,14 +115,50 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (cancel) fokus.requestFocus();
-        else masuk();
+        else getData();
 
     }
+
 
     private void masuk() {
         Preferences.setLoggedInUser(getBaseContext(), edt_email.getText().toString());
         Preferences.setLoggedInStatus(getBaseContext(), true);
         startActivity(new Intent(getBaseContext(), MainActivity.class));
+    }
+
+    private void getData(){
+        UserRequest loginRequest = new UserRequest();
+        loginRequest.setEmail(edt_email.getText().toString());
+        loginRequest.setPassword(textInputEditText.getText().toString());
+
+        Call<LoginResponse> loginResponsecall = ApiClient.getUserService(LoginActivity.this).loginUser(loginRequest);
+        loginResponsecall.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse( Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_LONG).show();
+                    LoginResponse loginResponse = response.body();
+
+                    Preferences preferences = new Preferences();
+//                    UserRequest loginRequests = loginResponse.getData();
+//                    preferences.saveString("email", edt_email.getText().toString());
+//                    preferences.saveString("password", loginRequests.getPassword());
+                    Preferences.setLoggedInUser(getBaseContext(), edt_email.getText().toString());
+                    Preferences.setLoggedInStatus(getBaseContext(), true);
+                    startActivity(new Intent(getBaseContext(), MainActivity.class));
+
+                }else{
+                    Toast.makeText(LoginActivity.this, "Gagal Login", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure( Call<LoginResponse> call, Throwable t) {
+                Log.d("Test Isi Jika Gagal" +
+                        "", t.getMessage());
+
+            }
+        });
     }
 
     private boolean cekPassword(String password) {

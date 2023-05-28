@@ -2,9 +2,11 @@ package com.example.smartlab.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -13,37 +15,38 @@ import com.example.smartlab.Adapter.Barang2Adapter;
 import com.example.smartlab.DataBarang2;
 import com.example.smartlab.Interface.UpdatePinjaman;
 import com.example.smartlab.R;
+import com.example.smartlab.Interface.UpdateRecyclerviewBarang;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-public class DaftarBarang2Activity extends AppCompatActivity {
+public class DaftarBarang2Activity extends AppCompatActivity implements UpdateRecyclerviewBarang{
 
     // Variabel ini adalah objek RecyclerView yang digunakan untuk menampilkan daftar item.
-    RecyclerView recyclerView;
+     private RecyclerView recyclerView;
+     private Barang2Adapter barang2Adapter;
 
     // Variabel ini adalah List yang berisi objek DataBarang2.
-    List<DataBarang2> dataBarang2List;
+    ArrayList<DataBarang2> dataBarang2List = new ArrayList();
+//    Barang2Adapter barang2Adapter;
 
     // Variabel ini adalah objek dari kelas Barang2Adapter.
-    Barang2Adapter adapter;
+//     private Barang2Adapter adapter;
 
     // Variabel ini adalah objek DataBarang2 yang digunakan untuk menyimpan data barang individu.
-    DataBarang2 dataBarang2;
+//    DataBarang2 dataBarang2;
 
     // Variabel ini adalah objek SearchView yang digunakan untuk menyediakan fungsi pencarian dalam RecyclerView.
     SearchView searchView;
 
     UpdatePinjaman updatePinjaman;
+    Activity context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_barang2);
 
-        // Baris ini menginisialisasi objek
-        recyclerView = findViewById(R.id.recyclerviewHistory3);
         searchView = findViewById(R.id.search2);
 
         // Kode di dibawah adalah implementasi penggunaan objek searchView
@@ -62,38 +65,63 @@ public class DaftarBarang2Activity extends AppCompatActivity {
         });
 
         // Kode di dibawah digunakan untuk mengatur tampilan grid pada RecyclerView dalam aktivitas DaftarBarang2Activity
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(DaftarBarang2Activity.this, 1);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        dataBarang2List = new ArrayList<>();
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(DaftarBarang2Activity.this, 1);
+//        recyclerView.setLayoutManager(gridLayoutManager);
+//        dataBarang2List = new ArrayList<>();
 
-        // Membuat objek DataBarang2 dengan nilai-nilai tertentu untuk setiap atributnya. Kemudian, objek tersebut ditambahkan ke dalam dataBarang2List.
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
-        dataBarang2List.add(dataBarang2);
-
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Lil Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
-        dataBarang2List.add(dataBarang2);
-
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Uno Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
-        dataBarang2List.add(dataBarang2);
-
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino2 Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
-        dataBarang2List.add(dataBarang2);
-
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Camero Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
-        dataBarang2List.add(dataBarang2);
-
-        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Sure Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
-        dataBarang2List.add(dataBarang2);
+//         Membuat objek DataBarang2 dengan nilai-nilai tertentu untuk setiap atributnya. Kemudian, objek tersebut ditambahkan ke dalam dataBarang2List.
+//        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
+//        dataBarang2List.add(dataBarang2);
+//
+//        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Lil Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
+//        dataBarang2List.add(dataBarang2);
+//
+//        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Uno Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
+//        dataBarang2List.add(dataBarang2);
+//
+//        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Arduino2 Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
+//        dataBarang2List.add(dataBarang2);
+//
+//        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Camero Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
+//        dataBarang2List.add(dataBarang2);
+//
+//        dataBarang2 = new DataBarang2(R.drawable.background_profile, "Sure Uno", "24 Pin", "Alat Praktikum", "12", "A123", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam interdum turpis diam, at interdum metus consectetur id. Proin tempus pretium mi,");
+//        dataBarang2List.add(dataBarang2);
 
         // untuk menghubungkan data yang ada dalam dataBarang2List dengan tampilan item-item dalam RecyclerView
-        adapter = new Barang2Adapter(DaftarBarang2Activity.this, dataBarang2List, updatePinjaman);
-        recyclerView.setAdapter(adapter);
+//        adapter = new Barang2Adapter(DaftarBarang2Activity.this, dataBarang2List, updatePinjaman);
+//        recyclerView.setAdapter(adapter);
 
+
+        ArrayList<DataBarang2> dataBarang2List = new ArrayList<>();
+        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+
+        dataBarang2List = new ArrayList<>();
+
+        // Baris ini menginisialisasi objek
+        recyclerView = findViewById(R.id.recyclerviewHistory3);
+        barang2Adapter = new Barang2Adapter(dataBarang2List);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(barang2Adapter);
+
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    @Override
+    public void callback(int position, ArrayList<DataBarang2> dataBarang2List) {
+        barang2Adapter = new Barang2Adapter(context, dataBarang2List, updatePinjaman);
+        barang2Adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(barang2Adapter);
     }
 
     // Untuk melakukan pencarian berdasarkan nama barang dalam dataBarang2List, dan hasil pencarian akan ditampilkan dalam RecyclerView melalui pembaruan data dalam adapter.
     private void searchList2(String text){
-        List<DataBarang2> dataSearchList = new ArrayList<>();
+        ArrayList<DataBarang2> dataSearchList = new ArrayList<>();
         for (DataBarang2 data : dataBarang2List){
             if (data.getNamaBarang().toLowerCase().contains(text.toLowerCase())){
                 dataSearchList.add(data);
@@ -102,7 +130,7 @@ public class DaftarBarang2Activity extends AppCompatActivity {
         if (dataSearchList.isEmpty()){
             Toast.makeText(this, "Data Tidak Ditemukan", Toast.LENGTH_SHORT).show();
         } else {
-            adapter.setSearchList2(dataSearchList);
+            barang2Adapter.setSearchList2(dataSearchList);
         }
     }
 
@@ -113,4 +141,7 @@ public class DaftarBarang2Activity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+
 }

@@ -43,25 +43,23 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.BarangView
     @Override
     public void onBindViewHolder(@NonNull BarangViewHolder holder, int position) {
 
-        holder.img_barang.setImageResource(dataBarangList.get(position).getDataImg());
-        holder.txt_barang.setText(dataBarangList.get(position).getNamaBarang());
-        holder.txt_detail.setText(dataBarangList.get(position).getDetailBarang());
-        holder.txt_kategori.setText(dataBarangList.get(position).getKategori());
-        holder.txt_idBarang2.setText(dataBarangList.get(position).getIdBarang2());
-        holder.txt_deskripsiBarang2.setText(dataBarangList.get(position).getDeskripsiBarang2());
-        holder.txt_totalBarang.setText(dataBarangList.get(position).getTotalBarang());
+        holder.txt_barang.setText(dataBarangList.get(position).getTitle());
+        holder.txt_detail.setText(dataBarangList.get(position).getContent());
+        holder.txt_kategori.setText(dataBarangList.get(position).getSlug());
+        holder.txt_deskripsiBarang2.setText(dataBarangList.get(position).getContent());
+        holder.txt_totalBarang.setText(dataBarangList.get(position).getStok());
 
         holder.card_barang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(context, DetailBarangActivity.class);
-                intent.putExtra("IdBarang", dataBarangList.get(holder.getAdapterPosition()).getIdBarang2());
-                intent.putExtra("Kategori", dataBarangList.get(holder.getAdapterPosition()).getKategori());
-                intent.putExtra("NamaBarang", dataBarangList.get(holder.getAdapterPosition()).getNamaBarang());
-                intent.putExtra("DetailBarang", dataBarangList.get(holder.getAdapterPosition()).getDetailBarang());
-                intent.putExtra("DeskripsiBarang", dataBarangList.get(holder.getAdapterPosition()).getDeskripsiBarang2());
-                intent.putExtra("Stock", dataBarangList.get(holder.getAdapterPosition()).getTotalBarang());
-                intent.putExtra("ImageBarang", dataBarangList.get(holder.getAdapterPosition()).getDataImg());
+//                intent.putExtra("IdBarang", dataBarangList.get(holder.getAdapterPosition()).getIdBarang2());
+//                intent.putExtra("Kategori", dataBarangList.get(holder.getAdapterPosition()).getKategori());
+//                intent.putExtra("NamaBarang", dataBarangList.get(holder.getAdapterPosition()).getNamaBarang());
+//                intent.putExtra("DetailBarang", dataBarangList.get(holder.getAdapterPosition()).getDetailBarang());
+//                intent.putExtra("DeskripsiBarang", dataBarangList.get(holder.getAdapterPosition()).getDeskripsiBarang2());
+//                intent.putExtra("Stock", dataBarangList.get(holder.getAdapterPosition()).getTotalBarang());
+//                intent.putExtra("ImageBarang", dataBarangList.get(holder.getAdapterPosition()).getDataImg());
 
                 context.startActivity(intent);
             }
@@ -93,6 +91,5 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.BarangView
         }
     }
 }
-
 
 

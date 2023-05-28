@@ -10,13 +10,13 @@ import java.util.ArrayList;
 public class PeminjamanMain extends Application implements UpdatePinjaman {
 
     private static Context context;
-    ArrayList<DaftarPinjam> daftarPinjam;
+    ArrayList<DaftarPinjam> daftarPinjams;
 
     @Override
     public void onCreate() {
         super.onCreate();
         context  = getApplicationContext();
-        daftarPinjam = new ArrayList<>();
+        daftarPinjams = new ArrayList<>();
     }
 
     public static Context getMyContext(){
@@ -25,12 +25,12 @@ public class PeminjamanMain extends Application implements UpdatePinjaman {
 
     @Override
     public void addItems(String txt_Barang, int img_barang) {
-        daftarPinjam.add(new DaftarPinjam(txt_Barang, img_barang));
+        daftarPinjams.add(new DaftarPinjam(txt_Barang, img_barang));
     }
 
     @Override
     public ArrayList<DaftarPinjam> getItems() {
-        return null;
+        return daftarPinjams;
     }
 
 }

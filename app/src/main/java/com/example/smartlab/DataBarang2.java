@@ -22,15 +22,15 @@ public class DataBarang2 {
 
     public String getIdBarang() { return idBarang; }
 
-    public String getDeskripsiBarang() { return deskripsiBarang; }
+//    public String getDeskripsiBarang() { return deskripsiBarang; }
 
-    public DataBarang2(int dataimg, String namaBarang, String detailBarang, String kategori, String totalBarang, String idBarang, String deskripsiBarang){
+    public DataBarang2(int dataimg, String namaBarang, String detailBarang, String kategori, String totalBarang, String idBarang){
         this.dataimg = dataimg;
         this.namaBarang = namaBarang;
         this.detailBarang = detailBarang;
         this.kategori = kategori;
         this.totalBarang = totalBarang;
         this.idBarang = idBarang;
-        this.detailBarang = detailBarang;
+//        this.deskripsiBarang = deskripsiBarang;
     }
 }
