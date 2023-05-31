@@ -2,6 +2,8 @@ package com.example.smartlab.Interface;
 
 import com.example.smartlab.DataBarang;
 import com.example.smartlab.Models.LoginResponse;
+import com.example.smartlab.Models.RegisterRequest;
+import com.example.smartlab.Models.RegisterResponse;
 import com.example.smartlab.Models.UserRequest;
 
 import java.util.List;
@@ -15,17 +17,12 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ApiService {
-    // Fungsi ini untuk memanggil API http://10.0.2.2/mahasiswa/login.php
-//    @FormUrlEncoded
+
     @POST("/api/signin")
     Call<LoginResponse> loginUser(@Body UserRequest userRequest);
 
-    // Fungsi ini untuk memanggil API http://10.0.2.2/mahasiswa/register.php
-    @FormUrlEncoded
-    @POST("register.php")
-    Call<ResponseBody> registerRequest(@Field("nama") String nama,
-                                       @Field("email") String email,
-                                       @Field("password") String password);
+    @POST("api/signup")
+    Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);
 
     @FormUrlEncoded
     @POST("/api/post")

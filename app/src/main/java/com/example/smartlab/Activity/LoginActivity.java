@@ -33,7 +33,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText edt_email, edt_password;
+    private EditText edt_email;
 
     TextInputLayout textInputLayout;
     TextInputEditText textInputEditText;
@@ -86,38 +86,38 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void razia() {
-        edt_email.setError(null);
-        textInputEditText.setError(null);
-        View fokus = null;
-        boolean cancel = false;
-
-        String email = edt_email.getText().toString();
-        String password = textInputEditText.getText().toString();
-
-        if (TextUtils.isEmpty(email)){
-            edt_email.setError("Field tidak boleh kosong");
-            fokus = edt_email;
-            cancel = true;
-        } else if (!cekEmail(email)){
-            edt_email.setError("Email ini tidak tersedia");
-            fokus = edt_email;
-            cancel = true;
-        }
-        if (TextUtils.isEmpty(password)){
-            textInputEditText.setError("Field tidak boleh kosong");
-            fokus = textInputEditText;
-            cancel = true;
-        } else if (!cekPassword(password)) {
-            textInputEditText.setError("Password Salah");
-            fokus = textInputEditText;
-            cancel = true;
-        }
-
-        if (cancel) fokus.requestFocus();
-        else getData();
-
-    }
+//    private void razia() {
+//        edt_email.setError(null);
+//        textInputEditText.setError(null);
+//        View fokus = null;
+//        boolean cancel = false;
+//
+//        String email = edt_email.getText().toString();
+//        String password = textInputEditText.getText().toString();
+//
+//        if (TextUtils.isEmpty(email)){
+//            edt_email.setError("Field tidak boleh kosong");
+//            fokus = edt_email;
+//            cancel = true;
+//        } else if (!cekEmail(email)){
+//            edt_email.setError("Email ini tidak tersedia");
+//            fokus = edt_email;
+//            cancel = true;
+//        }
+//        if (TextUtils.isEmpty(password)){
+//            textInputEditText.setError("Field tidak boleh kosong");
+//            fokus = textInputEditText;
+//            cancel = true;
+//        } else if (!cekPassword(password)) {
+//            textInputEditText.setError("Password Salah");
+//            fokus = textInputEditText;
+//            cancel = true;
+//        }
+//
+//        if (cancel) fokus.requestFocus();
+//        else getData();
+//
+//    }
 
 
     private void masuk() {
@@ -161,22 +161,22 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean cekPassword(String password) {
-        SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
-        if(sp.getString("pass", "").equals(password)){
-            return true;
-        }
-        return false;
-    }
-
-
-    private boolean cekEmail(String email) {
-        SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
-        if(sp.getString("email","").equals(email)){
-            return true;
-        }
-        return false;
-    }
+//    private boolean cekPassword(String password) {
+//        SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
+//        if(sp.getString("pass", "").equals(password)){
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//
+//    private boolean cekEmail(String email) {
+//        SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
+//        if(sp.getString("email","").equals(email)){
+//            return true;
+//        }
+//        return false;
+//    }
 
     @Override
     public void onBackPressed() {
