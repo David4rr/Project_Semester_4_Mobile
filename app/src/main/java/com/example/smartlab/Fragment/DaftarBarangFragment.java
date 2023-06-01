@@ -30,7 +30,7 @@ public class DaftarBarangFragment extends Fragment {
     RecyclerView recyclerView;
     List<DataBarang> dataBarang;
     BarangAdapter adapter;
-    DataBarang listBarang;
+//    DataBarang listBarang;
     SearchView searchView;
 
     @Override
@@ -80,7 +80,9 @@ public class DaftarBarangFragment extends Fragment {
             public void onResponse( Call<List<DataBarang>> call, Response<List<DataBarang>> response) {
                 List<DataBarang> barang = response.body();
                 adapter = new BarangAdapter(requireContext(), barang);
+                dataBarang.addAll(barang);
                 recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
                 Log.d("TEST ISI", barang.toString());
             }
 

@@ -6,12 +6,22 @@ public class DataBarang {
     private String slug;
     private String content;
     private String stok;
+    private String id;
 
-    public DataBarang(String title, String slug, String content, String stok) {
+    public DataBarang(String title, String slug, String content, String stok, String id) {
+        this.id = id;
         this.title = title;
         this.slug = slug;
         this.content = content;
         this.stok = stok;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {

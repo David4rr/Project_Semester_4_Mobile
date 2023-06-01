@@ -43,6 +43,7 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.BarangView
     @Override
     public void onBindViewHolder(@NonNull BarangViewHolder holder, int position) {
 
+        holder.txt_idBarang2.setText(dataBarangList.get(position).getId());
         holder.txt_barang.setText(dataBarangList.get(position).getTitle());
         holder.txt_detail.setText(dataBarangList.get(position).getContent());
         holder.txt_kategori.setText(dataBarangList.get(position).getSlug());
@@ -53,12 +54,12 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.BarangView
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(context, DetailBarangActivity.class);
-//                intent.putExtra("IdBarang", dataBarangList.get(holder.getAdapterPosition()).getIdBarang2());
-//                intent.putExtra("Kategori", dataBarangList.get(holder.getAdapterPosition()).getKategori());
-//                intent.putExtra("NamaBarang", dataBarangList.get(holder.getAdapterPosition()).getNamaBarang());
-//                intent.putExtra("DetailBarang", dataBarangList.get(holder.getAdapterPosition()).getDetailBarang());
-//                intent.putExtra("DeskripsiBarang", dataBarangList.get(holder.getAdapterPosition()).getDeskripsiBarang2());
-//                intent.putExtra("Stock", dataBarangList.get(holder.getAdapterPosition()).getTotalBarang());
+                intent.putExtra("IdBarang", dataBarangList.get(holder.getAdapterPosition()).getId());
+                intent.putExtra("Kategori", dataBarangList.get(holder.getAdapterPosition()).getSlug());
+                intent.putExtra("NamaBarang", dataBarangList.get(holder.getAdapterPosition()).getTitle());
+                intent.putExtra("DetailBarang", dataBarangList.get(holder.getAdapterPosition()).getSlug());
+                intent.putExtra("DeskripsiBarang", dataBarangList.get(holder.getAdapterPosition()).getContent());
+                intent.putExtra("Stock", dataBarangList.get(holder.getAdapterPosition()).getStok());
 //                intent.putExtra("ImageBarang", dataBarangList.get(holder.getAdapterPosition()).getDataImg());
 
                 context.startActivity(intent);
