@@ -48,13 +48,14 @@ public class PinjamAdapter extends RecyclerView.Adapter<PinjamAdapter.PinjamView
 
     public class PinjamViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txt_Barang;
-        ImageView img_barang;
+        TextView txt_Barang, txt_Jumlah;
+//        ImageView img_barang;
 
         public PinjamViewHolder(@NonNull View itemView) {
             super(itemView);
             txt_Barang = itemView.findViewById(R.id.txt_Barang);
-            img_barang = itemView.findViewById(R.id.img_barang);
+            txt_Jumlah = itemView.findViewById(R.id.txt_jumlah);
+//            img_barang = itemView.findViewById(R.id.img_barang);
         }
     }
 }

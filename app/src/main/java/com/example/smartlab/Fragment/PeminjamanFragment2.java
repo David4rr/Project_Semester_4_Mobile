@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.smartlab.Activity.DaftarBarang2Activity;
 import com.example.smartlab.Activity.EditProfileActivity;
 import com.example.smartlab.Activity.PinjamBarangActivity;
 import com.example.smartlab.Adapter.History2Adapter;
@@ -70,7 +71,7 @@ public class PeminjamanFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 // Membuat Intent untuk memulai EditProfileActivity
-                Intent intent = new Intent(getActivity(), PinjamBarangActivity.class);
+                Intent intent = new Intent(getActivity(), DaftarBarang2Activity.class);
                 startActivity(intent);
             }
         });

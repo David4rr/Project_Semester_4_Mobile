@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartlab.Activity.DaftarBarang2Activity;
+import com.example.smartlab.DataBarang;
 import com.example.smartlab.DataBarang2;
 import com.example.smartlab.DaftarPinjam;
 import com.example.smartlab.Adapter.PinjamAdapter;
@@ -28,14 +29,19 @@ public class Barang2Adapter extends RecyclerView.Adapter<Barang2Adapter.Barang2V
     public ArrayList<DataBarang2> dataBarang2List;
     Application activity;
     Context context;
-    String txt_Barang;
-    int img_barang;
+    String txt_Barang, txt_Jumlah;
+//    int img_barang;
     UpdatePinjaman updatePinjaman;
 
     public Barang2Adapter(Context context, ArrayList<DataBarang2> dataBarang2List,  UpdatePinjaman updatePinjaman) {
         this.context = context;
         this.dataBarang2List = dataBarang2List;
         this.updatePinjaman = updatePinjaman;
+    }
+
+    public Barang2Adapter(Context context, ArrayList<DataBarang2> dataBarang2List) {
+        this.context = context;
+        this.dataBarang2List = dataBarang2List;
     }
 
     public Barang2Adapter(ArrayList<DataBarang2> dataBarang2List) {
@@ -71,21 +77,22 @@ public class Barang2Adapter extends RecyclerView.Adapter<Barang2Adapter.Barang2V
     public void onBindViewHolder(@NonNull Barang2Adapter.Barang2ViewHolder holder, int position) {
 
         DataBarang2 currentItem = dataBarang2List.get(position);
-        holder.img_barang2.setImageResource(currentItem.getDataimg());
-        holder.txt_barang2.setText(currentItem.getNamaBarang());
-        holder.txt_detail2.setText(currentItem.getDetailBarang());
-        holder.txt_kategori2.setText(currentItem.getKategori());
-        holder.txt_idBarang3.setText(currentItem.getIdBarang());
+//        holder.img_barang2.setImageResource(currentItem.getDataimg());
+        holder.txt_barang2.setText(currentItem.getTitle());
+        holder.txt_detail2.setText(currentItem.getContent());
+        holder.txt_kategori2.setText(currentItem.getSlug());
+        holder.txt_idBarang3.setText(currentItem.getId());
 //        holder.txt_deskripsiBarang3.setText(currentItem.getDeskripsiBarang());
-        holder.txt_totalBarang2.setText(currentItem.getTotalBarang());
+        holder.txt_totalBarang2.setText(currentItem.getStok());
 
         holder.plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txt_Barang = currentItem.getNamaBarang();
-                img_barang = currentItem.getDataimg();
+                txt_Barang = currentItem.getTitle();
+                txt_Jumlah = currentItem.getStok();
+//                img_barang = currentItem.getId();
 
-                ((UpdatePinjaman) PeminjamanMain.getMyContext()).addItems( txt_Barang, img_barang);
+                ((UpdatePinjaman) PeminjamanMain.getMyContext()).addItems( txt_Barang, txt_Jumlah);
 
                 holder.plus.setVisibility(View.INVISIBLE);
                 holder.done.setVisibility(View.VISIBLE);
@@ -121,7 +128,7 @@ public class Barang2Adapter extends RecyclerView.Adapter<Barang2Adapter.Barang2V
         public Barang2ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            img_barang2 = itemView.findViewById(R.id.img_barang2);
+//            img_barang2 = itemView.findViewById(R.id.img_barang2);
             txt_barang2 = itemView.findViewById(R.id.txt_barang2);
             txt_detail2 = itemView.findViewById(R.id.txt_detail2);
             txt_kategori2 = itemView.findViewById(R.id.txt_kategori2);

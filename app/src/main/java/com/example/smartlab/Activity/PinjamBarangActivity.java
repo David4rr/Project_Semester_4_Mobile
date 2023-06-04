@@ -31,8 +31,8 @@ public class PinjamBarangActivity extends AppCompatActivity {
     private EditText edt_tangal;
     private ImageButton btn_calender;
 
-    Button button;
-    Intent pindah;
+//    Button button;
+//    Intent pindah;
 
     ImageView btn_backPinjamBarang;
 
@@ -49,18 +49,18 @@ public class PinjamBarangActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(pinjamAdapter);
 
-        button = (Button)findViewById(R.id.btn_daftarBarang2);
+//        button = (Button)findViewById(R.id.btn_daftarBarang2);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
                 //kode untuk pindah ke actifity lain
-                Intent pindah = new Intent(PinjamBarangActivity.this, DaftarBarang2Activity.class);
-                startActivity(pindah);
+//                Intent pindah = new Intent(PinjamBarangActivity.this, DaftarBarang2Activity.class);
+//                startActivity(pindah);
                 //saat pindah, activity yg sekarang langsung ditutup
                 //agar saat menekan tombol kembali tidak bolak-balik
-            }
-        });
+//            }
+//        });
 
         btn_backPinjamBarang = findViewById(R.id.img_backpinjamBarang);
 
@@ -68,7 +68,10 @@ public class PinjamBarangActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                onBackPressed();
+//                onBackPressed();
+                Intent intent = new Intent(PinjamBarangActivity.this, DaftarBarang2Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

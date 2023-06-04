@@ -32,7 +32,8 @@
             android:exported="false" />
         <activity
             android:name=".Activity.DaftarBarang2Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity
             android:name=".Activity.PinjamBarangActivity"
             android:exported="false" />

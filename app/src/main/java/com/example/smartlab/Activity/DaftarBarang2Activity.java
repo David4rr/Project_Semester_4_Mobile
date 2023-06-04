@@ -9,9 +9,15 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.smartlab.Adapter.Barang2Adapter;
+import com.example.smartlab.Adapter.BarangAdapter;
+import com.example.smartlab.ApiClient;
+import com.example.smartlab.DataBarang;
 import com.example.smartlab.DataBarang2;
 import com.example.smartlab.Interface.UpdatePinjaman;
 import com.example.smartlab.R;
@@ -20,11 +26,17 @@ import com.example.smartlab.Interface.UpdateRecyclerviewBarang;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class DaftarBarang2Activity extends AppCompatActivity implements UpdateRecyclerviewBarang{
 
     // Variabel ini adalah objek RecyclerView yang digunakan untuk menampilkan daftar item.
      private RecyclerView recyclerView;
      private Barang2Adapter barang2Adapter;
+
+     Button btn_back;
 
     // Variabel ini adalah List yang berisi objek DataBarang2.
     ArrayList<DataBarang2> dataBarang2List = new ArrayList();
@@ -64,6 +76,19 @@ public class DaftarBarang2Activity extends AppCompatActivity implements UpdateRe
             }
         });
 
+        btn_back = findViewById(R.id.btn_back);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(DaftarBarang2Activity.this, PinjamBarangActivity.class);
+        startActivity(intent);
+        finish();
+            }
+        });
+
+
         // Kode di dibawah digunakan untuk mengatur tampilan grid pada RecyclerView dalam aktivitas DaftarBarang2Activity
 //        GridLayoutManager gridLayoutManager = new GridLayoutManager(DaftarBarang2Activity.this, 1);
 //        recyclerView.setLayoutManager(gridLayoutManager);
@@ -94,14 +119,13 @@ public class DaftarBarang2Activity extends AppCompatActivity implements UpdateRe
 
 
         ArrayList<DataBarang2> dataBarang2List = new ArrayList<>();
-        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
-        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
-        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
-        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
-        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
-        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
-
-        dataBarang2List = new ArrayList<>();
+        getData();
+//        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+//        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+//        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+//        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+//        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
+//        dataBarang2List.add(new DataBarang2(R.drawable.background_profile,"Arduino Uno", "24 Pin", "Alat Praktikum", "12", "A123"));
 
         // Baris ini menginisialisasi objek
         recyclerView = findViewById(R.id.recyclerviewHistory3);
@@ -111,9 +135,37 @@ public class DaftarBarang2Activity extends AppCompatActivity implements UpdateRe
 
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+    private void getData(){
+
+        Call<ArrayList<DataBarang2>> barang = ApiClient.getUserService(DaftarBarang2Activity.this).getBarang2();
+        barang.enqueue(new Callback<ArrayList<DataBarang2>>() {
+            @Override
+            public void onResponse( Call<ArrayList<DataBarang2>> call, Response<ArrayList<DataBarang2>> response) {
+                ArrayList<DataBarang2> barang = response.body();
+                barang2Adapter = new Barang2Adapter(DaftarBarang2Activity.this, barang);
+                dataBarang2List.addAll(barang);
+                recyclerView.setAdapter(barang2Adapter);
+                barang2Adapter.notifyDataSetChanged();
+                Log.d("TEST ISI", barang.toString());
+            }
+
+            @Override
+            public void onFailure( Call<ArrayList<DataBarang2>> call, Throwable t) {
+                Log.d("Test Isi Jika Gagal" +
+                        "", t.getMessage());
+
+            }
+        });
+
+    }
+//    @Override
+//    public void callback(int position, ArrayList<DataBarang> dataBarang2List) {
+//        barang2Adapter = new Barang2Adapter(context, dataBarang2List, updatePinjaman);
+//        barang2Adapter.notifyDataSetChanged();
+//        recyclerView.setAdapter(barang2Adapter);
+//    }
     @Override
-    public void callback(int position, ArrayList<DataBarang2> dataBarang2List) {
+    public void callback(int position, ArrayList<DataBarang2> dataBarang2List){
         barang2Adapter = new Barang2Adapter(context, dataBarang2List, updatePinjaman);
         barang2Adapter.notifyDataSetChanged();
         recyclerView.setAdapter(barang2Adapter);
@@ -123,7 +175,7 @@ public class DaftarBarang2Activity extends AppCompatActivity implements UpdateRe
     private void searchList2(String text){
         ArrayList<DataBarang2> dataSearchList = new ArrayList<>();
         for (DataBarang2 data : dataBarang2List){
-            if (data.getNamaBarang().toLowerCase().contains(text.toLowerCase())){
+            if (data.getTitle().toLowerCase().contains(text.toLowerCase())){
                 dataSearchList.add(data);
             }
         }
@@ -135,13 +187,13 @@ public class DaftarBarang2Activity extends AppCompatActivity implements UpdateRe
     }
 
     // Untuk mengarahkan pengguna ke aktivitas PinjamBarangActivity ketika tombol "Back" ditekan pada aktivitas DaftarBarang2Activity
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(DaftarBarang2Activity.this, PinjamBarangActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
+//    @Override
+//    public void onBackPressed() {
+//        Intent intent = new Intent(DaftarBarang2Activity.this, PinjamBarangActivity.class);
+//        startActivity(intent);
+//        finish();
+//    }
 
 
 }
+

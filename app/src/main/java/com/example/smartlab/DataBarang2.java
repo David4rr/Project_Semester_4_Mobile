@@ -2,35 +2,57 @@ package com.example.smartlab;
 
 public class DataBarang2 {
 
-    private int dataimg;
-    private String namaBarang;
-    private String detailBarang;
-    private String kategori;
-    private String totalBarang;
-    private String idBarang;
-    private String deskripsiBarang;
+    private String title;
+    private String slug;
+    private String content;
+    private String stok;
+    private String id;
 
-    public int getDataimg() { return dataimg; }
+    public DataBarang2(String title, String slug, String content, String stok, String id) {
+        this.id = id;
+        this.title = title;
+        this.slug = slug;
+        this.content = content;
+        this.stok = stok;
+    }
 
-    public String getNamaBarang() { return namaBarang; }
+    public String getId() {
+        return id;
+    }
 
-    public String getDetailBarang() { return detailBarang; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getKategori() { return kategori; }
+    public String getTitle() {
+        return title;
+    }
 
-    public String getTotalBarang() { return totalBarang; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    public String getIdBarang() { return idBarang; }
+    public String getSlug() {
+        return slug;
+    }
 
-//    public String getDeskripsiBarang() { return deskripsiBarang; }
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
 
-    public DataBarang2(int dataimg, String namaBarang, String detailBarang, String kategori, String totalBarang, String idBarang){
-        this.dataimg = dataimg;
-        this.namaBarang = namaBarang;
-        this.detailBarang = detailBarang;
-        this.kategori = kategori;
-        this.totalBarang = totalBarang;
-        this.idBarang = idBarang;
-//        this.deskripsiBarang = deskripsiBarang;
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getStok() {
+        return stok;
+    }
+
+    public void setStok(String stok) {
+        this.stok = stok;
     }
 }

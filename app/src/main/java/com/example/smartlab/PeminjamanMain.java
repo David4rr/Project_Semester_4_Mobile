@@ -24,8 +24,8 @@ public class PeminjamanMain extends Application implements UpdatePinjaman {
     }
 
     @Override
-    public void addItems(String txt_Barang, int img_barang) {
-        daftarPinjams.add(new DaftarPinjam(txt_Barang, img_barang));
+    public void addItems(String txt_Barang, String txt_Jumlah) {
+        daftarPinjams.add(new DaftarPinjam(txt_Barang, txt_Jumlah));
     }
 
     @Override

@@ -73,14 +73,14 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.BarangView
     }
     public class BarangViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView img_barang;
+//        ImageView img_barang;
         TextView txt_barang, txt_detail, txt_kategori, txt_totalBarang, txt_idBarang2, txt_deskripsiBarang2;
         CardView card_barang;
 
         public BarangViewHolder(View itemView) {
             super(itemView);
 
-            img_barang = itemView.findViewById(R.id.img_barang);
+//            img_barang = itemView.findViewById(R.id.img_barang);
             txt_barang = itemView.findViewById(R.id.txt_barang);
             txt_detail = itemView.findViewById(R.id.txt_detail);
             txt_kategori = itemView.findViewById(R.id.txt_kategori);

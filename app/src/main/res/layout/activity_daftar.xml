@@ -130,6 +130,7 @@
         android:background="@drawable/edittext_shape"
         android:hint="Masukan Password anda disini"
         android:paddingHorizontal="15dp"
+        app:passwordToggleEnabled="true"
         android:paddingBottom="5dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -139,7 +140,7 @@
             android:layout_marginHorizontal="15dp"
             android:fontFamily="@font/poppins_regular"
             android:textSize="14sp"
-            android:inputType="textPassword|textVisiblePassword" />
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
