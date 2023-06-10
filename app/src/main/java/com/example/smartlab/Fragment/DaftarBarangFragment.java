@@ -60,11 +60,6 @@ public class DaftarBarangFragment extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager);
         dataBarang = new ArrayList<>();
 
-//        listBarang = new DataBarang("Mureco Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12");
-//        dataBarang.add(listBarang);
-//        listBarang = new DataBarang("Mureco Uno", "Arduino Uno 24 pin", "Alat Praktikum", "12");
-//        dataBarang.add(listBarang);
-
         adapter = new BarangAdapter(requireContext(), dataBarang);
         recyclerView.setAdapter(adapter);
 

@@ -107,19 +107,19 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/ttl_tanggalPengembalian"
+        android:id="@+id/ttl_tanggalPeminjaman"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/constlyt_barang"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="10dp"
         android:textSize="13sp"
-        android:text="Tanggal pengembalian"
+        android:text="Tanggal Peminjaman"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins_bold"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constlyt_tanggal"
+        android:id="@+id/constlyt_tanggalin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/ttl_tanggalPengembalian"
@@ -128,7 +128,7 @@
         android:paddingHorizontal="10dp">
 
         <EditText
-            android:id="@+id/edt_outTanggal"
+            android:id="@+id/edt_Tanggalin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -141,13 +141,13 @@
             android:textColorHint="@color/white" />
 
         <ImageButton
-            android:id="@+id/btn_calender"
+            android:id="@+id/btn_calenderin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/edt_outTanggal"
+            app:layout_constraintLeft_toRightOf="@+id/edt_Tanggalin"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="5dp"
             android:src="@drawable/calender"
@@ -155,10 +155,68 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/ttl_tanggalPengembalian"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/constlyt_barang"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:textSize="13sp"
+        android:text="Tanggal Pengembalian"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_bold"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constlyt_tanggalout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ttl_tanggalPengembalian"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/button_editprofile"
+        android:paddingHorizontal="10dp">
+
+        <EditText
+            android:id="@+id/edt_Tanggalout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:hint="Atur Tanggal"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="13sp"
+            android:textColorHint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/btn_calenderout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/edt_Tanggalout"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/calender"
+            android:background="@drawable/button_editprofile"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ttl_tanggalPengembalian"
+        app:layout_constraintLeft_toRightOf="@+id/constlyt_tanggalin"
+        app:layout_constraintRight_toLeftOf="@+id/constlyt_tanggalout"
+        android:src="@drawable/minus"/>
+
     <Button
+        android:id="@+id/btn_pinjam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/constlyt_tanggal"
+        app:layout_constraintTop_toBottomOf="@+id/constlyt_tanggalout"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="Pinjam"
         android:textAllCaps="false"

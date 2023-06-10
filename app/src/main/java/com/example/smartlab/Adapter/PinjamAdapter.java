@@ -39,6 +39,7 @@ public class PinjamAdapter extends RecyclerView.Adapter<PinjamAdapter.PinjamView
     public void onBindViewHolder(@NonNull PinjamViewHolder holder, int position) {
         DaftarPinjam currentItem = daftarPinjams.get(position);
         holder.txt_Barang.setText(currentItem.getTxt_Barang());
+        holder.txt_Jumlah.setText(currentItem.getTxt_Jumlah());
     }
 
     @Override

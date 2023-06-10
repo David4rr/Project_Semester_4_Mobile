@@ -48,9 +48,7 @@ public class DataBarang2 {
         this.content = content;
     }
 
-    public String getStok() {
-        return stok;
-    }
+    public String getStok() {return stok;}
 
     public void setStok(String stok) {
         this.stok = stok;

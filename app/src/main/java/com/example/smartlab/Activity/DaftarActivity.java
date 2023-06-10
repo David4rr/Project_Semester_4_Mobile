@@ -64,16 +64,6 @@ public class DaftarActivity extends AppCompatActivity {
             }else{
                 getData();
             }
-//                SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor editor = sp.edit();
-//                editor.putString("nama", edt_nama.getText().toString());
-//                editor.putString("email", edt_emaildaftar.getText().toString());
-//                editor.putString("phone", edt_nohp.getText().toString());
-//                editor.putString("pass", textInputEditText.getText().toString());
-//                editor.commit();
-//                editor.apply();
-//                Intent intent = new Intent(DaftarActivity.this, LoginActivity.class);
-//                startActivity(intent);
         });
     }
 
@@ -93,9 +83,6 @@ public class DaftarActivity extends AppCompatActivity {
                     RegisterResponse registerResponse = response.body();
 
                     Preferences preferences = new Preferences();
-//                    UserRequest loginRequests = loginResponse.getData();
-//                    preferences.saveString("email", edt_email.getText().toString());
-//                    preferences.saveString("password", loginRequests.getPassword());
                     Preferences.setRegisteredUser(getBaseContext(), edt_nama.getText().toString());
                     Preferences.setRegisteredEmail(getBaseContext(), edt_emaildaftar.getText().toString());
                     Preferences.setRegisteredNohp(getBaseContext(), edt_nohp.getText().toString());

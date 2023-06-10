@@ -75,13 +75,6 @@ public class Preferences {
     public static boolean getLoggedInStatus(Context context){
         return getSharedPreferences(context).getBoolean(KEY_STATUS_SEDANG_LOGIN, false);
     }
-//    public void saveString(String key, String value){
-//        editor.putString(key, value);
-//        editor.apply();
-//    }
-//    public String getString(String key, String defaultValue){
-//        return sharedPreferences.getString(key, defaultValue);
-//    }
 
     public static void clearLoggedInUser(Context context){
         SharedPreferences.Editor editor = getSharedPreferences(context).edit();

@@ -86,40 +86,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-//    private void razia() {
-//        edt_email.setError(null);
-//        textInputEditText.setError(null);
-//        View fokus = null;
-//        boolean cancel = false;
-//
-//        String email = edt_email.getText().toString();
-//        String password = textInputEditText.getText().toString();
-//
-//        if (TextUtils.isEmpty(email)){
-//            edt_email.setError("Field tidak boleh kosong");
-//            fokus = edt_email;
-//            cancel = true;
-//        } else if (!cekEmail(email)){
-//            edt_email.setError("Email ini tidak tersedia");
-//            fokus = edt_email;
-//            cancel = true;
-//        }
-//        if (TextUtils.isEmpty(password)){
-//            textInputEditText.setError("Field tidak boleh kosong");
-//            fokus = textInputEditText;
-//            cancel = true;
-//        } else if (!cekPassword(password)) {
-//            textInputEditText.setError("Password Salah");
-//            fokus = textInputEditText;
-//            cancel = true;
-//        }
-//
-//        if (cancel) fokus.requestFocus();
-//        else getData();
-//
-//    }
-
-
     private void masuk() {
         Preferences.setLoggedInUser(getBaseContext(), edt_email.getText().toString());
         Preferences.setLoggedInStatus(getBaseContext(), true);
@@ -140,9 +106,6 @@ public class LoginActivity extends AppCompatActivity {
                     LoginResponse loginResponse = response.body();
 
                     Preferences preferences = new Preferences();
-//                    UserRequest loginRequests = loginResponse.getData();
-//                    preferences.saveString("email", edt_email.getText().toString());
-//                    preferences.saveString("password", loginRequests.getPassword());
                     Preferences.setLoggedInUser(getBaseContext(), edt_email.getText().toString());
                     Preferences.setLoggedInStatus(getBaseContext(), true);
                     startActivity(new Intent(getBaseContext(), MainActivity.class));
@@ -160,23 +123,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-//    private boolean cekPassword(String password) {
-//        SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
-//        if(sp.getString("pass", "").equals(password)){
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//
-//    private boolean cekEmail(String email) {
-//        SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
-//        if(sp.getString("email","").equals(email)){
-//            return true;
-//        }
-//        return false;
-//    }
 
     @Override
     public void onBackPressed() {

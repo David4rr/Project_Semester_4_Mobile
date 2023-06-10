@@ -2,6 +2,8 @@ package com.example.smartlab.Interface;
 
 import com.example.smartlab.DataBarang;
 import com.example.smartlab.DataBarang2;
+import com.example.smartlab.Models.EditUserRequest;
+import com.example.smartlab.Models.EditUserResponse;
 import com.example.smartlab.Models.LoginResponse;
 import com.example.smartlab.Models.RegisterRequest;
 import com.example.smartlab.Models.RegisterResponse;
@@ -20,14 +22,17 @@ import retrofit2.http.POST;
 
 public interface ApiService {
 
-    @POST("/api/signin")
+    @POST("api/signin")
     Call<LoginResponse> loginUser(@Body UserRequest userRequest);
 
     @POST("api/signup")
     Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);
 
+    @POST("api/edit/user")
+    Call<EditUserResponse> editUser(@Body EditUserRequest editUserResponse);
+
     @FormUrlEncoded
-    @POST("/api/post")
+    @POST("api/post")
     Call<ResponseBody> postRequest(@Field("id") String id,
                                    @Field("title") String title,
                                    @Field("slug") String slug,
@@ -38,7 +43,7 @@ public interface ApiService {
     Call<List<DataBarang>> getBarang();
 
     @FormUrlEncoded
-    @POST("/api/post")
+    @POST("api/post")
     Call<ResponseBody> postRequest2(@Field("id") String id,
                                    @Field("title") String title,
                                    @Field("slug") String slug,

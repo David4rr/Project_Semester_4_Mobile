@@ -28,8 +28,8 @@ public class PinjamBarangActivity extends AppCompatActivity {
     PinjamAdapter pinjamAdapter;
     Activity context;
     UpdatePinjaman updatePinjaman;
-    private EditText edt_tangal;
-    private ImageButton btn_calender;
+    private EditText edt_tanggal, edt_tanggal2;
+    private ImageButton btn_calender, btn_calender2;
 
 //    Button button;
 //    Intent pindah;
@@ -44,10 +44,7 @@ public class PinjamBarangActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pinjam_barang);
 
-        recyclerView = findViewById(R.id.rcylPinjam);
-        pinjamAdapter = new PinjamAdapter(context);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(pinjamAdapter);
+
 
 //        button = (Button)findViewById(R.id.btn_daftarBarang2);
 
@@ -62,22 +59,23 @@ public class PinjamBarangActivity extends AppCompatActivity {
 //            }
 //        });
 
+
         btn_backPinjamBarang = findViewById(R.id.img_backpinjamBarang);
 
         btn_backPinjamBarang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-//                onBackPressed();
                 Intent intent = new Intent(PinjamBarangActivity.this, DaftarBarang2Activity.class);
+                onBackPressed();
                 startActivity(intent);
                 finish();
             }
         });
 
-        edt_tangal = findViewById(R.id.edt_outTanggal);
-        btn_calender = findViewById(R.id.btn_calender);
-        edt_tangal.setEnabled(false);
+        edt_tanggal = findViewById(R.id.edt_Tanggalin);
+        btn_calender = findViewById(R.id.btn_calenderin);
+        edt_tanggal.setEnabled(false);
 
         // Fungsi dari kode di bawah adalah untuk mengatur aksi yang terjadi saat tombol btn_calender (tombol untuk memilih tanggal) diklik oleh pengguna.
         btn_calender.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +94,49 @@ public class PinjamBarangActivity extends AppCompatActivity {
                         bulan = month;
                         hari = dayOfMonth;
 
-                        edt_tangal.setText(hari + " - " + bulan + " - " + tahun);
+                        edt_tanggal.setText(hari + " - " + bulan + " - " + tahun);
                     }
                 }, tahun, bulan, hari);
                 datePickerDialog.show();
             }
         });
+
+        edt_tanggal2 = findViewById(R.id.edt_Tanggalout);
+        btn_calender2 = findViewById(R.id.btn_calenderout);
+        edt_tanggal2.setEnabled(false);
+
+        // Fungsi dari kode di bawah adalah untuk mengatur aksi yang terjadi saat tombol btn_calender (tombol untuk memilih tanggal) diklik oleh pengguna.
+        btn_calender2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendar = Calendar.getInstance();
+                tahun2 = calendar.get(Calendar.YEAR);
+                bulan2 = calendar.get(Calendar.MONTH);
+                hari2 = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog;
+                datePickerDialog = new DatePickerDialog(PinjamBarangActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                        tahun2 = year;
+                        bulan2 = month;
+                        hari2 = dayOfMonth;
+
+                        edt_tanggal2.setText(hari2 + " - " + bulan2 + " - " + tahun2);
+                    }
+                }, tahun2, bulan2, hari2);
+                datePickerDialog.show();
+            }
+        });
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        recyclerView = findViewById(R.id.rcylPinjam);
+        pinjamAdapter = new PinjamAdapter(context);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(pinjamAdapter);
 
     }
 }
