@@ -132,6 +132,7 @@
         <LinearLayout
             android:paddingLeft="10dp"
             android:paddingRight="20dp"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -147,7 +148,7 @@
                 android:backgroundTint="@color/white"/>
 
             <TextView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -178,7 +179,7 @@
             <TextView
                 android:fontFamily="@font/poppins_semibold"
                 android:textSize="10sp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -212,7 +213,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
                 android:textSize="10sp"
-                android:text="Barang Hilang"
+                android:text="Barang dikembalikan"
+                android:textAlignment="center"
                 android:textColor="@color/white"/>
 
         </LinearLayout>
