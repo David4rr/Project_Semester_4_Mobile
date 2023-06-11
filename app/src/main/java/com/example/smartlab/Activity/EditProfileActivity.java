@@ -1,6 +1,7 @@
 package com.example.smartlab.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,16 +34,27 @@ public class EditProfileActivity extends AppCompatActivity {
     ImageView btn_backAkun;
     Button btn_ubah;
     Intent pindah;
+    Preferences preferences;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
+        swipeRefreshLayout = findViewById(R.id.srl_editprofile);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                userData();
+            }
+        });
+
+        preferences = new Preferences(this);
         txt_namaPengguna = findViewById(R.id.txt_namaPengguna);
         txt_Email = findViewById(R.id.txt_Email);
         txt_noHp = findViewById(R.id.txt_noHp);
-        txt_password = findViewById(R.id.txt_password);
+        userData();
 
         btn_ubah = findViewById(R.id.btn_ubah);
 
@@ -52,6 +64,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 //kode untuk pindah ke actifity lain
                 pindah = new Intent(EditProfileActivity.this, EditAkunActivity.class);
                 startActivity(pindah);
+//                startActivityForResult(pindah, REQUEST_CODE);
                 //saat pindah, activity yg sekarang langsung ditutup
                 //agar saat menekan tombol kembali tidak bolak-balik
                 finish();
@@ -70,5 +83,11 @@ public class EditProfileActivity extends AppCompatActivity {
 
     }
 
+    public  void userData(){
+        txt_namaPengguna.setText(preferences.getString("name", ""));
+        txt_Email.setText(preferences.getString("email", ""));
+        txt_noHp.setText(preferences.getString("phone", ""));
+        swipeRefreshLayout.setRefreshing(false);
+    }
 
 }

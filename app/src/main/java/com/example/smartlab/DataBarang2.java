@@ -53,4 +53,5 @@ public class DataBarang2 {
     public void setStok(String stok) {
         this.stok = stok;
     }
+
 }

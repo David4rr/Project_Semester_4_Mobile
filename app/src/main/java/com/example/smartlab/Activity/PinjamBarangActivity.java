@@ -1,6 +1,7 @@
 package com.example.smartlab.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import com.example.smartlab.Adapter.PinjamAdapter;
 import com.example.smartlab.Interface.UpdatePinjaman;
 import com.example.smartlab.R;
+import com.example.smartlab.SwipeDelete;
 
 import java.util.Calendar;
 
@@ -30,11 +32,8 @@ public class PinjamBarangActivity extends AppCompatActivity {
     UpdatePinjaman updatePinjaman;
     private EditText edt_tanggal, edt_tanggal2;
     private ImageButton btn_calender, btn_calender2;
-
-//    Button button;
-//    Intent pindah;
-
-    ImageView btn_backPinjamBarang;
+    ImageView btn_backPinjamBarang, btn_sampah;
+    private ItemTouchHelper itemTouchHelper;
 
     private int tahun, bulan, hari;
     private int tahun2, bulan2, hari2;
@@ -44,21 +43,21 @@ public class PinjamBarangActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pinjam_barang);
 
+        recyclerView = findViewById(R.id.rcylPinjam);
+        pinjamAdapter = new PinjamAdapter(context);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(pinjamAdapter);
 
+        itemTouchHelper = new ItemTouchHelper(new SwipeDelete(pinjamAdapter));
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
-//        button = (Button)findViewById(R.id.btn_daftarBarang2);
-
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-                //kode untuk pindah ke actifity lain
-//                Intent pindah = new Intent(PinjamBarangActivity.this, DaftarBarang2Activity.class);
-//                startActivity(pindah);
-                //saat pindah, activity yg sekarang langsung ditutup
-                //agar saat menekan tombol kembali tidak bolak-balik
-//            }
-//        });
-
+        btn_sampah = findViewById(R.id.img_sampah);
+        btn_sampah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pinjamAdapter.clearItems();
+            }
+        });
 
         btn_backPinjamBarang = findViewById(R.id.img_backpinjamBarang);
 
@@ -128,15 +127,5 @@ public class PinjamBarangActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        recyclerView = findViewById(R.id.rcylPinjam);
-        pinjamAdapter = new PinjamAdapter(context);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(pinjamAdapter);
-
     }
 }

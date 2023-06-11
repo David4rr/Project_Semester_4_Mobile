@@ -73,12 +73,25 @@ public class Barang2Adapter extends RecyclerView.Adapter<Barang2Adapter.Barang2V
                 txt_Jumlah = currentItem.getStok();
 //                img_barang = currentItem.getId();
 
-                ((UpdatePinjaman) PeminjamanMain.getMyContext()).addItems( txt_Barang, txt_Jumlah);
+                boolean isAlreadyAdded = isItemAlreadyAdded(txt_Barang);
 
-                holder.plus.setVisibility(View.INVISIBLE);
-                holder.done.setVisibility(View.VISIBLE);
+                if (!isAlreadyAdded) {
+                    ((UpdatePinjaman) PeminjamanMain.getMyContext()).addItems(txt_Barang, txt_Jumlah);
+
+                    holder.plus.setVisibility(View.INVISIBLE);
+                    holder.done.setVisibility(View.VISIBLE);
+                }
+
             }
         });
+        boolean isAlreadyAdded = isItemAlreadyAdded(currentItem.getTitle());
+        if (isAlreadyAdded) {
+            holder.plus.setVisibility(View.INVISIBLE);
+            holder.done.setVisibility(View.VISIBLE);
+        } else {
+            holder.plus.setVisibility(View.VISIBLE);
+            holder.done.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -103,5 +116,13 @@ public class Barang2Adapter extends RecyclerView.Adapter<Barang2Adapter.Barang2V
             plus = itemView.findViewById(R.id.img_plus);
             done = itemView.findViewById(R.id.img_done);
         }
+    }
+    private boolean isItemAlreadyAdded(String txt_Barang) {
+        for (DaftarPinjam item : ((UpdatePinjaman) PeminjamanMain.getMyContext()).getItems()) {
+            if (item.getTxt_Barang().equals(txt_Barang)) {
+                return true; // Barang sudah ada dalam daftar pinjaman
+            }
+        }
+        return false; // Barang belum ada dalam daftar pinjaman
     }
 }

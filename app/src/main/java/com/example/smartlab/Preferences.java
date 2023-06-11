@@ -11,9 +11,26 @@ public class Preferences {
     static final String KEY_STATUS_SEDANG_LOGIN = "status_logged_in";
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private Context context;
+    private static final String PREF_NAME = "Pref";
 
     private static SharedPreferences getSharedPreferences(Context context){
         return PreferenceManager.getDefaultSharedPreferences(context);
+    }
+
+    public Preferences(Context context){
+        this.context = context;
+        sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+    }
+
+    public void saveString(String Key, String Value){
+        editor.putString(Key, Value);
+        editor.apply();
+    }
+
+    public String getString (String Key, String defaultValue){
+        return sharedPreferences.getString(Key, defaultValue);
     }
 
     public static void setRegisteredNohp(Context context, String phone){

@@ -15,6 +15,7 @@ import com.example.smartlab.ApiClient;
 import com.example.smartlab.MainActivity;
 import com.example.smartlab.Models.EditUserRequest;
 import com.example.smartlab.Models.EditUserResponse;
+import com.example.smartlab.Preferences;
 import com.example.smartlab.R;
 
 import retrofit2.Call;
@@ -25,31 +26,35 @@ public class EditAkunActivity extends AppCompatActivity {
 
     EditText edt_nama, edt_email, edt_nohp, edt_password;
     ImageView btn_editAkun;
-    Button btn_daftar;
+    Button btn_perbarui;
     Intent pindah;
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_akun);
 
+        preferences = new Preferences(this);
         edt_nama = findViewById(R.id.edt_nama);
         edt_email = findViewById(R.id.edt_email);
         edt_nohp = findViewById(R.id.edt_nohp);
-        edt_password = findViewById(R.id.edt_password);
+        userData();
 
-        btn_daftar = findViewById(R.id.btn_daftar);
+        btn_perbarui = findViewById(R.id.btn_perbarui);
 
-        btn_daftar.setOnClickListener(new View.OnClickListener() {
+        btn_perbarui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //kode untuk pindah ke actifity lain
-                pindah = new Intent(EditAkunActivity.this, EditProfileActivity.class);
-                startActivity(pindah);
+                pindah = new Intent(EditAkunActivity.this, LoginActivity.class);
                 getData();
+                Preferences.clearLoggedInUser(getBaseContext());
+                startActivity(pindah);
+                finish(); // Menutup aktivitas setelah mengirim hasil
                 //saat pindah, activity yg sekarang langsung ditutup
                 //agar saat menekan tombol kembali tidak bolak-balik
-                finish();
+//                finish();
             }
         });
 
@@ -68,7 +73,6 @@ public class EditAkunActivity extends AppCompatActivity {
         editUserRequest.setName(edt_nama.getText().toString());
         editUserRequest.setEmail(edt_email.getText().toString());
         editUserRequest.setPhone(edt_nohp.getText().toString());
-        editUserRequest.setPassword(edt_password.getText().toString());
 
         Call<EditUserResponse> editUserResponseCall = ApiClient.getUserService(EditAkunActivity.this).editUser(editUserRequest);
         editUserResponseCall.enqueue(new Callback<EditUserResponse>() {
@@ -84,7 +88,7 @@ public class EditAkunActivity extends AppCompatActivity {
 ////                    preferences.saveString("password", loginRequests.getPassword());
 //                    Preferences.setLoggedInUser(getBaseContext(), edt_email.getText().toString());
 //                    Preferences.setLoggedInStatus(getBaseContext(), true);
-                    startActivity(new Intent(getBaseContext(), MainActivity.class));
+//                    startActivity(new Intent(getBaseContext(), EditProfileActivity.class));
 
                 }else{
                     Toast.makeText(EditAkunActivity.this, "Gagal Ubah Data", Toast.LENGTH_LONG).show();
@@ -99,5 +103,11 @@ public class EditAkunActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public  void userData(){
+        edt_nama.setText(preferences.getString("name", ""));
+        edt_email.setText(preferences.getString("email", ""));
+        edt_nohp.setText(preferences.getString("phone", ""));
+        edt_email.setEnabled(false);
     }
 }

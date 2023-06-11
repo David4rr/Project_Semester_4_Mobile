@@ -8,9 +8,9 @@ public class EditUserResponse {
     @SerializedName("message")
     private String message;
     @SerializedName("data")
-    private UserRequest data;
+    private EditUserRequest data;
 
-    public EditUserResponse(String success, String message, UserRequest data) {
+    public EditUserResponse(String success, String message, EditUserRequest data) {
         this.success = success;
         this.message = message;
         this.data = data;
@@ -32,11 +32,11 @@ public class EditUserResponse {
         this.message = message;
     }
 
-    public UserRequest getData() {
+    public EditUserRequest getData() {
         return data;
     }
 
-    public void setData(UserRequest data) {
+    public void setData(EditUserRequest data) {
         this.data = data;
     }
 }

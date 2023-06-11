@@ -1,5 +1,6 @@
 package com.example.smartlab.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.BlendMode;
 import android.graphics.Color;
@@ -14,10 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.smartlab.Activity.EditProfileActivity;
+import com.example.smartlab.Adapter.BarangAdapter;
 import com.example.smartlab.Adapter.HistoryAdapter;
+import com.example.smartlab.ApiClient;
+import com.example.smartlab.DataBarang;
 import com.example.smartlab.History;
+import com.example.smartlab.Preferences;
 import com.example.smartlab.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -25,11 +31,17 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
-    private Button btn_edtProfile;
-
+    Preferences preferences;
+    private Button btn_edtProfile, btn_totalBarang;
+    private TextView txt_nama;
     private RecyclerView recyclerView;
     private HistoryAdapter historyAdapter;
     private ArrayList<History> historyArrayList;
@@ -42,6 +54,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        btn_totalBarang = view.findViewById(R.id.btn_totalbarang);
+
+        preferences = new Preferences(requireContext());
+        txt_nama = view.findViewById(R.id.txt_nama);
+        txt_nama.setText(preferences.getString("name", ""));
 
         btn_edtProfile = view.findViewById(R.id.btn_edtprofile);
 
@@ -116,5 +134,6 @@ public class HomeFragment extends Fragment {
         historyArrayList.add(new History("Peminjaman 5","26-02-2023", "12", "12"));
     }
     // Code diatas untuk data Recyclerview
+
 
 }

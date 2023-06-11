@@ -7,6 +7,19 @@
     tools:context=".Fragment.PeminjamanFragment2"
     android:background="@color/primaryColor">
 
+    <TextView
+        android:id="@+id/txt_peminjaman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="Peminjaman"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
     <LinearLayout
         android:id="@+id/lyt_peminjaman2"
         android:layout_height="wrap_content"

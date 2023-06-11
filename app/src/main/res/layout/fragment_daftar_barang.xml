@@ -27,8 +27,7 @@
             app:queryHint="Search..."
             android:focusable="false"
             app:closeIcon="@drawable/clear"
-            app:searchIcon="@drawable/search"
-            android:textColor="@color/white"/>
+            app:searchIcon="@drawable/search" />
 
     </LinearLayout>
 

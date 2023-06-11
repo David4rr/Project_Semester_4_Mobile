@@ -102,10 +102,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse( Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_LONG).show();
+
                     LoginResponse loginResponse = response.body();
 
-                    Preferences preferences = new Preferences();
+                    Preferences preferences = new Preferences(LoginActivity.this);
+                    UserRequest loginReq = loginResponse.getData();
+                    preferences.saveString("id", loginReq.getId());
+                    preferences.saveString("name", loginReq.getName());
+                    preferences.saveString("phone", loginReq.getPhone());
+                    preferences.saveString("email", loginReq.getEmail());
                     Preferences.setLoggedInUser(getBaseContext(), edt_email.getText().toString());
                     Preferences.setLoggedInStatus(getBaseContext(), true);
                     startActivity(new Intent(getBaseContext(), MainActivity.class));

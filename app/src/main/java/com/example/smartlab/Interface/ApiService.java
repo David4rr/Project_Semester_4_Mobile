@@ -29,7 +29,7 @@ public interface ApiService {
     Call<RegisterResponse> registerUser(@Body RegisterRequest registerRequest);
 
     @POST("api/edit/user")
-    Call<EditUserResponse> editUser(@Body EditUserRequest editUserResponse);
+    Call<EditUserResponse> editUser(@Body EditUserRequest editUserRequest);
 
     @FormUrlEncoded
     @POST("api/post")

@@ -82,7 +82,7 @@ public class DaftarActivity extends AppCompatActivity {
                     Toast.makeText(DaftarActivity.this, "Berhasil Daftar", Toast.LENGTH_LONG).show();
                     RegisterResponse registerResponse = response.body();
 
-                    Preferences preferences = new Preferences();
+                    Preferences preferences = new Preferences(DaftarActivity.this);
                     Preferences.setRegisteredUser(getBaseContext(), edt_nama.getText().toString());
                     Preferences.setRegisteredEmail(getBaseContext(), edt_emaildaftar.getText().toString());
                     Preferences.setRegisteredNohp(getBaseContext(), edt_nohp.getText().toString());
