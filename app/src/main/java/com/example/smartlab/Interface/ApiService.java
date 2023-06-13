@@ -4,6 +4,8 @@ import com.example.smartlab.DataBarang;
 import com.example.smartlab.DataBarang2;
 import com.example.smartlab.Models.EditUserRequest;
 import com.example.smartlab.Models.EditUserResponse;
+import com.example.smartlab.Models.LendingRequest;
+import com.example.smartlab.Models.LendingResponse;
 import com.example.smartlab.Models.LoginResponse;
 import com.example.smartlab.Models.RegisterRequest;
 import com.example.smartlab.Models.RegisterResponse;
@@ -30,6 +32,9 @@ public interface ApiService {
 
     @POST("api/edit/user")
     Call<EditUserResponse> editUser(@Body EditUserRequest editUserRequest);
+
+    @POST("api/lending")
+    Call<LendingResponse> lending(@Body LendingRequest lendingRequest);
 
     @FormUrlEncoded
     @POST("api/post")

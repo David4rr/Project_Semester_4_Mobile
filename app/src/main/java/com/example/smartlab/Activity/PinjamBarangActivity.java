@@ -10,19 +10,33 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.smartlab.Adapter.PinjamAdapter;
+import com.example.smartlab.ApiClient;
+import com.example.smartlab.Fragment.PeminjamanFragment;
 import com.example.smartlab.Interface.UpdatePinjaman;
+import com.example.smartlab.MainActivity;
+import com.example.smartlab.Models.EditUserRequest;
+import com.example.smartlab.Models.EditUserResponse;
+import com.example.smartlab.Models.LendingRequest;
+import com.example.smartlab.Models.LendingResponse;
+import com.example.smartlab.Preferences;
 import com.example.smartlab.R;
 import com.example.smartlab.SwipeDelete;
 
 import java.util.Calendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PinjamBarangActivity extends AppCompatActivity {
 
@@ -34,6 +48,8 @@ public class PinjamBarangActivity extends AppCompatActivity {
     private ImageButton btn_calender, btn_calender2;
     ImageView btn_backPinjamBarang, btn_sampah;
     private ItemTouchHelper itemTouchHelper;
+    Button btn_pinjam;
+    Intent pindah;
 
     private int tahun, bulan, hari;
     private int tahun2, bulan2, hari2;
@@ -42,6 +58,21 @@ public class PinjamBarangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pinjam_barang);
+
+        btn_pinjam = findViewById(R.id.btn_pinjam);
+        btn_pinjam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //kode untuk pindah ke actifity lain
+                pindah = new Intent(PinjamBarangActivity.this, MainActivity.class);
+                getData();
+                startActivity(pindah);
+                finish(); // Menutup aktivitas setelah mengirim hasil
+                //saat pindah, activity yg sekarang langsung ditutup
+                //agar saat menekan tombol kembali tidak bolak-balik
+//                finish();
+            }
+        });
 
         recyclerView = findViewById(R.id.rcylPinjam);
         pinjamAdapter = new PinjamAdapter(context);
@@ -93,7 +124,8 @@ public class PinjamBarangActivity extends AppCompatActivity {
                         bulan = month;
                         hari = dayOfMonth;
 
-                        edt_tanggal.setText(hari + " - " + bulan + " - " + tahun);
+//                        edt_tanggal.setText(hari + "-" + bulan + "-" + tahun);
+                        edt_tanggal.setText(tahun + "-" + bulan + "-" + hari);
                     }
                 }, tahun, bulan, hari);
                 datePickerDialog.show();
@@ -121,10 +153,40 @@ public class PinjamBarangActivity extends AppCompatActivity {
                         bulan2 = month;
                         hari2 = dayOfMonth;
 
-                        edt_tanggal2.setText(hari2 + " - " + bulan2 + " - " + tahun2);
+//                        edt_tanggal2.setText(hari2 + "-" + bulan2 + "-" + tahun2);
+                        edt_tanggal2.setText(tahun2 + "-" + bulan2 + "-" + hari2);
                     }
                 }, tahun2, bulan2, hari2);
                 datePickerDialog.show();
+            }
+        });
+    }
+    private void getData() {
+        LendingRequest lendingRequest = new LendingRequest();
+        Preferences preferences = new Preferences(this);
+        String id_user = preferences.getString("id", "");
+        lendingRequest.setUser(id_user);
+        System.out.println("id"+id_user);
+        lendingRequest.setLending_date(edt_tanggal.getText().toString());
+        lendingRequest.setReturn_date(edt_tanggal2.getText().toString());
+
+        Call<LendingResponse> lending = ApiClient.getUserService(PinjamBarangActivity.this).lending(lendingRequest);
+        lending.enqueue(new Callback<LendingResponse>() {
+            @Override
+            public void onResponse(Call<LendingResponse> call, Response<LendingResponse> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(PinjamBarangActivity.this, "Berhasil Ubah Data", Toast.LENGTH_LONG).show();
+                    LendingResponse lendingResponse = response.body();
+                } else {
+                    Toast.makeText(PinjamBarangActivity.this, "Gagal Ubah Data", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LendingResponse> call, Throwable t) {
+                Log.d("Test Isi Jika Gagal" +
+                        "", t.getMessage());
+
             }
         });
     }
